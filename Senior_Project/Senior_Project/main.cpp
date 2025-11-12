@@ -4,6 +4,7 @@
 #include <vector>
 #include "FastaParser.h"
 #include "SearchAlgorithm.h"
+#include "TrieIndex.h"
 
 using namespace std;
 
@@ -64,6 +65,28 @@ int main() {
             if (pattern.length() <= seq.length()) {
                 auto positions = SearchAlgorithm::boyerMooreSearch(seq, pattern);
                 SearchAlgorithm::printSearchResults(positions, pattern);
+            }
+        }
+
+
+
+
+
+        // TRIE TEST
+        cout << "\n4. Testing Trie Index:" << endl;
+
+        TrieIndex trie(3); // Create trie for codons (length 3)
+        trie.buildIndex(seq); // Build index from the loaded sequence
+
+        vector<string> testCodons = { "ATG", "TAA", "TAG", "TGA" };
+        for (const auto& codon : testCodons) {
+            auto positions = trie.findPositions(codon);
+            cout << "Codon '" << codon << "' found at " << positions.size() << " positions" << endl;
+            if (!positions.empty() && positions.size() <= 5) {
+                for (size_t i = 0; i < min(positions.size(), size_t(3)); i++) {
+                    cout << positions[i] << " ";
+                }
+                cout << endl;
             }
         }
 

@@ -14,7 +14,7 @@ bool DNASequence::isValidDNA() const {
 }
 
 void DNASequence::printSummary() const {
-    cout << "=== DNA Sequence Summary ===" << endl;
+    cout << "DNA Sequence Summary" << endl;
     cout << "Header: " << header << endl;
     cout << "Length: " << length() << " bases" << endl;
     cout << "Valid DNA: " << (isValidDNA() ? "Yes" : "No") << endl;
@@ -27,4 +27,20 @@ void DNASequence::printSummary() const {
     cout << "Preview: " << preview << endl;
     cout << "\n" << endl;
     */
-}
+
+    string DNASequence::reverseComplement(const string & seq) {
+        string result;
+        result.reserve(seq.length());
+
+        for (int i = seq.length() - 1; i >= 0; i--) {
+            char base = seq[i];
+            switch (toupper(base)) {
+            case 'A': result += 'T'; break;
+            case 'T': result += 'A'; break;
+            case 'C': result += 'G'; break;
+            case 'G': result += 'C'; break;
+            default: result += 'N';//invalid characters
+            }
+        }
+        return result;
+    }

@@ -25,6 +25,12 @@
     <Filter Include="Source Files\io">
       <UniqueIdentifier>{81fe0bd7-b396-4a6c-94cd-10ac61fd3da8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\algorithms">
+      <UniqueIdentifier>{506939cf-cb57-4eef-a630-3fb3998d93f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\algorithms">
+      <UniqueIdentifier>{2464ab09-7972-47e3-8baf-dd3e80bb8db7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -40,7 +46,16 @@
       <Filter>Source Files\io</Filter>
     </ClCompile>
     <ClCompile Include="SearchAlgorithm.cpp">
-      <Filter>Source Files\core</Filter>
+      <Filter>Source Files\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="TrieNode.cpp">
+      <Filter>Source Files\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="TrieIndex.cpp">
+      <Filter>Source Files\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="OrfFinder.cpp">
+      <Filter>Source Files\algorithms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,7 +69,16 @@
       <Filter>Header Files\io</Filter>
     </ClInclude>
     <ClInclude Include="SearchAlgorithm.h">
-      <Filter>Header Files\core</Filter>
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="TrieNode.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="TrieIndex.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="OrfFinder.h">
+      <Filter>Header Files\algorithms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

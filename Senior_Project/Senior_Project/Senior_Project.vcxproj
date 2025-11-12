@@ -132,12 +132,18 @@
     <ClCompile Include="Feature.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SearchAlgorithm.cpp" />
+    <ClCompile Include="OrfFinder.cpp" />
+    <ClCompile Include="TrieIndex.cpp" />
+    <ClCompile Include="TrieNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DNASequence.h" />
     <ClInclude Include="FastaParser.h" />
     <ClInclude Include="Feature.h" />
+    <ClInclude Include="OrfFinder.h" />
+    <ClInclude Include="TrieIndex.h" />
     <ClInclude Include="SearchAlgorithm.h" />
+    <ClInclude Include="TrieNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,9 +1,6 @@
-﻿  DNASequence.cpp
-  FastaParser.cpp
-  SearchAlgorithm.cpp
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\SearchAlgorithm.cpp(9,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\SearchAlgorithm.cpp(10,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\SearchAlgorithm.cpp(43,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  main.cpp
+﻿  main.cpp
+  TrieIndex.cpp
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\TrieIndex.cpp(35,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  TrieNode.cpp
   Generating Code...
   Senior_Project.vcxproj -> C:\Users\temp\Desktop\senior_project\Senior_Project\x64\Debug\Senior_Project.exe

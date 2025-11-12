@@ -16,4 +16,10 @@ public:
 
     bool isValidDNA() const;
     void printSummary() const;
+
+    std::string reverseComplement(const std::string& seq);
 };
+
+
+ 
+
