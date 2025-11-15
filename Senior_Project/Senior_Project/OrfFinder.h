@@ -22,6 +22,5 @@ public:
     static void printORFs(const std::vector<ORF>& orfs);
 
 private:
-    static void scanFrame(const std::string& frameSequence, int frameOffset,
-        int frameNumber, TrieIndex& trie, std::vector<ORF>& results);
+    static void scanFrame(const std::string& frameSequence, const std::string& originalSequence, int frameOffset, int frameNumber, TrieIndex& trie, std::vector<ORF>& results);
 };
