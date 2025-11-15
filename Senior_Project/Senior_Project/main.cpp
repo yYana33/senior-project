@@ -5,6 +5,7 @@
 #include "FastaParser.h"
 #include "SearchAlgorithm.h"
 #include "TrieIndex.h"
+#include "OrfFinder.h"
 
 using namespace std;
 
@@ -89,6 +90,18 @@ int main() {
                 cout << endl;
             }
         }
+
+
+
+        //ORF FINDER TEST
+        cout << "\n5. Testing ORF Finder:" << endl;
+
+
+        //using the same trie built earlier
+        vector<ORF> foundORFs = OrfFinder::findORFs(seq, trie);
+        OrfFinder::printORFs(foundORFs);
+
+
 
         //letting user test their own pattern
         cout << "\n3. Custom Pattern Search:" << endl;

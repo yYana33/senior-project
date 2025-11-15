@@ -27,8 +27,8 @@ void DNASequence::printSummary() const {
     cout << "Preview: " << preview << endl;
     cout << "\n" << endl;
     */
-
-    string DNASequence::reverseComplement(const string & seq) {
+}
+    std::string DNASequence::reverseComplement(const std::string & seq) {
         string result;
         result.reserve(seq.length());
 
