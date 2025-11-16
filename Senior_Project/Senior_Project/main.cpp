@@ -76,7 +76,8 @@ int main() {
         // TRIE TEST
         cout << "\n4. Testing Trie Index:" << endl;
 
-        TrieIndex trie(3); // Create trie for codons (length 3)
+
+        TrieIndex trie(3); 
         trie.buildIndex(seq); // Build index from the loaded sequence
 
         vector<string> testCodons = { "ATG", "TAA", "TAG", "TGA" };
@@ -98,9 +99,24 @@ int main() {
 
 
         //using the same trie built earlier
-        vector<ORF> foundORFs = OrfFinder::findORFs(seq, trie);
+       vector<ORF> foundORFs = OrfFinder::findORFs(seq, trie);
+
+        vector<ORF> longORFs = OrfFinder::filterByLength(foundORFs, 150); 
+        vector<ORF> nonOverlappingORFs = OrfFinder::removeOverlaps(foundORFs);
+
+        cout << "All ORFs:" << endl;
         OrfFinder::printORFs(foundORFs);
 
+        cout << "\nLong ORFs (>150 nt):" << endl;
+        OrfFinder::printORFs(longORFs);
+
+        cout << "\nNon-overlapping ORFs:" << endl;
+        OrfFinder::printORFs(nonOverlappingORFs);
+
+        //test - specific frames
+        vector<ORF> forwardORFs = OrfFinder::filterByFrame(foundORFs, 1);
+        cout << "\nFRAME +1 ORFs only:" << endl;
+        OrfFinder::printORFs(forwardORFs);
 
 
         //letting user test their own pattern

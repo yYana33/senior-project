@@ -90,20 +90,84 @@ void OrfFinder::scanFrame(const std::string& frameSequence, const std::string& o
     }
 }
 
-
 void OrfFinder::printORFs(const std::vector<ORF>& orfs) {
     cout << "Found " << orfs.size() << " ORFs:" << endl;
 
-    for (size_t i = 0; i < orfs.size(); i++) {
-        const ORF& orf = orfs[i];
-        cout << "ORF " << (i + 1) << ":" << endl;
-        cout << "  Frame: " << orf.frame << endl;
-        cout << "  Position: " << orf.start << " - " << orf.end << endl;
-        cout << "  Length: " << orf.length << " nucleotides (" << (orf.length / 3) << " codons)" << endl;
-        cout << "  Sequence: " << orf.sequence.substr(0, 30); //showing first 30 bases - test
-        if (orf.sequence.length() > 30) {
-            cout << "...";
-        }
-        cout << endl << endl;
+    //separating the forward and reverse ORFs for clearer display
+    vector<ORF> forwardORFs, reverseORFs;
+    for (const auto& orf : orfs) {
+        if (orf.frame > 0) { forwardORFs.push_back(orf); }
+        else { reverseORFs.push_back(orf);}
     }
+
+    if (!forwardORFs.empty()) {
+        cout << "\nFORWARD strand ORFs:" << endl;
+        for (size_t i = 0; i < forwardORFs.size(); i++) {
+            const ORF& orf = forwardORFs[i];
+            cout << "ORF " << (i + 1) << " (Frame +" << orf.frame << "):" << endl;
+            cout << "  Position: " << orf.start << " - " << orf.end << endl;
+            cout << "  Length: " << orf.length << " nt, " << (orf.length / 3) << " aa" << endl;
+            cout << "  Start: " << orf.sequence.substr(0, 9) << "..." << endl;
+            cout << "  End: ..." << orf.sequence.substr(orf.sequence.length() - 9) << endl << endl;
+        }
+    }
+
+    if (!reverseORFs.empty()) {
+        cout << "REVERSE strand ORFs:" << endl;
+        for (size_t i = 0; i < reverseORFs.size(); i++) {
+            const ORF& orf = reverseORFs[i];
+            cout << "ORF " << (i + 1) << " (Frame " << orf.frame << "):" << endl;
+            cout << "  Position: " << orf.start << " - " << orf.end << endl;
+            cout << "  Length: " << orf.length << " nt, " << (orf.length / 3) << " aa" << endl;
+            cout << "  Start: " << orf.sequence.substr(0, 9) << "..." << endl;
+            cout << "  End: ..." << orf.sequence.substr(orf.sequence.length() - 9) << endl << endl;
+        }
+    }
+
+    cout << "Summary: " << forwardORFs.size() << " forward, " << reverseORFs.size() << " reverse ORFs found." << endl;
+}
+
+std::vector<ORF> OrfFinder::filterByLength(const std::vector<ORF>& orfs, int minLength) {
+    std::vector<ORF> filtered;
+    for (const auto& orf : orfs) {
+        if (orf.length >= minLength) {
+            filtered.push_back(orf);
+        }
+    }
+    return filtered;
+}
+
+std::vector<ORF> OrfFinder::filterByFrame(const std::vector<ORF>& orfs, int frame) {
+    std::vector<ORF> filtered;
+    for (const auto& orf : orfs) {
+        if (orf.frame == frame) {
+            filtered.push_back(orf);
+        }
+    }
+    return filtered;
+}
+
+std::vector<ORF> OrfFinder::removeOverlaps(const std::vector<ORF>& orfs) {
+    if (orfs.empty()) return orfs;
+
+    std::vector<ORF> sorted = orfs;
+    //Sortiing by start position
+    std::sort(sorted.begin(), sorted.end(), [](const ORF& a, const ORF& b) { return a.start < b.start;});
+
+    std::vector<ORF> nonOverlapping;
+    nonOverlapping.push_back(sorted[0]);
+
+    for (size_t i = 1; i < sorted.size(); i++) {
+        const ORF& current = sorted[i];
+        const ORF& last = nonOverlapping.back();
+
+        //checking for overlaps
+        if (current.start > last.end) { nonOverlapping.push_back(current);}
+        else {
+            //If overlap is found - keep the longer ORF
+            if (current.length > last.length) { nonOverlapping.back() = current; }
+        }
+    }
+
+    return nonOverlapping;
 }

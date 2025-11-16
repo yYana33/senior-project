@@ -21,6 +21,12 @@ public:
 
     static void printORFs(const std::vector<ORF>& orfs);
 
+    static std::vector<ORF> filterByLength(const std::vector<ORF>& orfs, int minLength);
+
+    static std::vector<ORF> filterByFrame(const std::vector<ORF>& orfs, int frame);
+
+    static std::vector<ORF> removeOverlaps(const std::vector<ORF>& orfs);
+
 private:
     static void scanFrame(const std::string& frameSequence, const std::string& originalSequence, int frameOffset, int frameNumber, TrieIndex& trie, std::vector<ORF>& results);
 };

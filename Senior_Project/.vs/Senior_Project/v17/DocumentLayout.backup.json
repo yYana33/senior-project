@@ -3,40 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\Feature.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\Feature.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\DNASequence.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\DNASequence.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\OrfFinder.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\OrfFinder.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\DNASequence.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\DNASequence.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\OrfFinder.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\OrfFinder.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\OrfFinder.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\OrfFinder.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieNode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\TrieNode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\DNASequence.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\DNASequence.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieIndex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\TrieIndex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieIndex.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\TrieIndex.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\Feature.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\Feature.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieNode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\TrieNode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\DNASequence.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\DNASequence.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieIndex.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\TrieIndex.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieNode.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -70,24 +70,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "OrfFinder.cpp",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\OrfFinder.cpp",
               "RelativeDocumentMoniker": "Senior_Project\\OrfFinder.cpp",
               "ToolTip": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\OrfFinder.cpp",
               "RelativeToolTip": "Senior_Project\\OrfFinder.cpp",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAADcAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAKYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-12T08:07:45.5Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "DNASequence.cpp",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\DNASequence.cpp",
               "RelativeDocumentMoniker": "Senior_Project\\DNASequence.cpp",
@@ -95,8 +95,7 @@
               "RelativeToolTip": "Senior_Project\\DNASequence.cpp",
               "ViewState": "AgIAACoAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-12T17:06:08.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T17:06:08.979Z"
             },
             {
               "$type": "Document",
@@ -106,14 +105,14 @@
               "RelativeDocumentMoniker": "Senior_Project\\OrfFinder.h",
               "ToolTip": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\OrfFinder.h",
               "RelativeToolTip": "Senior_Project\\OrfFinder.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-11-12T08:08:16.561Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "TrieIndex.h",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieIndex.h",
               "RelativeDocumentMoniker": "Senior_Project\\TrieIndex.h",
@@ -121,12 +120,11 @@
               "RelativeToolTip": "Senior_Project\\TrieIndex.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-12T07:17:50.904Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-12T07:17:50.904Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "DNASequence.h",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\DNASequence.h",
               "RelativeDocumentMoniker": "Senior_Project\\DNASequence.h",
@@ -134,12 +132,11 @@
               "RelativeToolTip": "Senior_Project\\DNASequence.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-10-12T17:04:44.078Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T17:04:44.078Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "TrieNode.cpp",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieNode.cpp",
               "RelativeDocumentMoniker": "Senior_Project\\TrieNode.cpp",
@@ -151,20 +148,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\main.cpp",
               "RelativeDocumentMoniker": "Senior_Project\\main.cpp",
               "ToolTip": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\main.cpp",
               "RelativeToolTip": "Senior_Project\\main.cpp",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAAAGMAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAGYAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-12T12:19:03.954Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Feature.cpp",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\Feature.cpp",
               "RelativeDocumentMoniker": "Senior_Project\\Feature.cpp",
@@ -172,12 +169,11 @@
               "RelativeToolTip": "Senior_Project\\Feature.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-12T17:06:31.715Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T17:06:31.715Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "TrieIndex.cpp",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieIndex.cpp",
               "RelativeDocumentMoniker": "Senior_Project\\TrieIndex.cpp",
