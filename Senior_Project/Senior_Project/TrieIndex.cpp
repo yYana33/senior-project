@@ -42,7 +42,7 @@ void TrieIndex::buildIndex(const std::string& sequence) {
     cout << "Built Trie index with " << (seqLength - kmerLength + 1) << " k-mers" << endl;
 }
 
-std::vector<int> TrieIndex::findPositions(const std::string& kmer) const {
+std::vector<int> TrieIndex::findPositions(const std::string& kmer) const { 
     vector<int> results;
 
     if (kmer.length() != kmerLength) {

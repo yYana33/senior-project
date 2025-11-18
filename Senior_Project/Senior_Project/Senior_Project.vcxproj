@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Aligner.cpp" />
     <ClCompile Include="DNASequence.cpp" />
     <ClCompile Include="FastaParser.cpp" />
     <ClCompile Include="Feature.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="TrieNode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Aligner.h" />
     <ClInclude Include="DNASequence.h" />
     <ClInclude Include="FastaParser.h" />
     <ClInclude Include="Feature.h" />

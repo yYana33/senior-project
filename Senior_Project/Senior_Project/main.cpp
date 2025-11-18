@@ -24,7 +24,7 @@ int main() {
         sequence->printSummary();
 
         //additional useful info for now 
-        cout << "\nAdditional Stats:" << endl;
+        cout << "\nAdditional stats:" << endl;
         cout << "\n" << endl;
 
         //counting the  bases + their frequencies
@@ -48,7 +48,7 @@ int main() {
         double gc_content = (g_count + c_count) * 100.0 / seq.length();
         cout << "GC Content: " << gc_content << "%" << endl;
 
-        cout << "\n2. Testing Boyer-Moore Search Algorithm:" << endl;
+        cout << "\n2. Testing Boyer-Moore search algorithm:" << endl;
         cout << "\n" << endl;
 
         //testing with common codons
@@ -74,7 +74,7 @@ int main() {
 
 
         // TRIE TEST
-        cout << "\n4. Testing Trie Index:" << endl;
+        cout << "\n4. Testing Trie index:" << endl;
 
 
         TrieIndex trie(3); 
@@ -95,7 +95,7 @@ int main() {
 
 
         //ORF FINDER TEST
-        cout << "\n5. Testing ORF Finder:" << endl;
+        cout << "\n5. Testing ORF finder:" << endl;
 
 
         //using the same trie built earlier
@@ -120,7 +120,7 @@ int main() {
 
 
         //letting user test their own pattern
-        cout << "\n3. Custom Pattern Search:" << endl;
+        cout << "\n3. Custom pattern search:" << endl;
         cout << "\n" << endl;
         cout << "Enter a DNA pattern to search for (or 'quit' to exit): ";
 
@@ -155,7 +155,7 @@ int main() {
 
     }
     else {
-        cout << "ERROR: Failed to parse the FASTA file!" << endl;
+        cout << "ERROR! Failed to parse the FASTA file!" << endl;
         return 1;
     }
 

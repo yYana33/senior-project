@@ -57,6 +57,9 @@
     <ClCompile Include="OrfFinder.cpp">
       <Filter>Source Files\algorithms</Filter>
     </ClCompile>
+    <ClCompile Include="Aligner.cpp">
+      <Filter>Source Files\algorithms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DNASequence.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files\algorithms</Filter>
     </ClInclude>
     <ClInclude Include="OrfFinder.h">
+      <Filter>Header Files\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="Aligner.h">
       <Filter>Header Files\algorithms</Filter>
     </ClInclude>
   </ItemGroup>

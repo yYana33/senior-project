@@ -104,11 +104,11 @@ void OrfFinder::printORFs(const std::vector<ORF>& orfs) {
         cout << "\nFORWARD strand ORFs:" << endl;
         for (size_t i = 0; i < forwardORFs.size(); i++) {
             const ORF& orf = forwardORFs[i];
-            cout << "ORF " << (i + 1) << " (Frame +" << orf.frame << "):" << endl;
-            cout << "  Position: " << orf.start << " - " << orf.end << endl;
-            cout << "  Length: " << orf.length << " nt, " << (orf.length / 3) << " aa" << endl;
-            cout << "  Start: " << orf.sequence.substr(0, 9) << "..." << endl;
-            cout << "  End: ..." << orf.sequence.substr(orf.sequence.length() - 9) << endl << endl;
+            cout << "ORF " << (i + 1) << " (frame +" << orf.frame << "):" << endl;
+            cout << "Position: " << orf.start << " - " << orf.end << endl;
+            cout << "Length: " << orf.length << " nt, " << (orf.length / 3) << " aa" << endl;
+            cout << "Start: " << orf.sequence.substr(0, 9) << "..." << endl;
+            cout << "End: ..." << orf.sequence.substr(orf.sequence.length() - 9) << endl << endl;
         }
     }
 
@@ -116,11 +116,11 @@ void OrfFinder::printORFs(const std::vector<ORF>& orfs) {
         cout << "REVERSE strand ORFs:" << endl;
         for (size_t i = 0; i < reverseORFs.size(); i++) {
             const ORF& orf = reverseORFs[i];
-            cout << "ORF " << (i + 1) << " (Frame " << orf.frame << "):" << endl;
-            cout << "  Position: " << orf.start << " - " << orf.end << endl;
-            cout << "  Length: " << orf.length << " nt, " << (orf.length / 3) << " aa" << endl;
-            cout << "  Start: " << orf.sequence.substr(0, 9) << "..." << endl;
-            cout << "  End: ..." << orf.sequence.substr(orf.sequence.length() - 9) << endl << endl;
+            cout << "ORF " << (i + 1) << " (frame " << orf.frame << "):" << endl;
+            cout << "Position: " << orf.start << " - " << orf.end << endl;
+            cout << "Length: " << orf.length << " nt, " << (orf.length / 3) << " aa" << endl;
+            cout << "Start: " << orf.sequence.substr(0, 9) << "..." << endl;
+            cout << "End: ..." << orf.sequence.substr(orf.sequence.length() - 9) << endl << endl;
         }
     }
 
@@ -149,6 +149,7 @@ std::vector<ORF> OrfFinder::filterByFrame(const std::vector<ORF>& orfs, int fram
 
 std::vector<ORF> OrfFinder::removeOverlaps(const std::vector<ORF>& orfs) {
     if (orfs.empty()) return orfs;
+
 
     std::vector<ORF> sorted = orfs;
     //Sortiing by start position
