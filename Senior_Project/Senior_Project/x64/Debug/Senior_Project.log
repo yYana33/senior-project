@@ -1,16 +1,10 @@
 ﻿  Aligner.cpp
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(12,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(13,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(132,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(144,17): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(145,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(159,17): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(133,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(145,17): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(146,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(158,17): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
   main.cpp
-  OrfFinder.cpp
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\OrfFinder.cpp(49,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\OrfFinder.cpp(72,57): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\OrfFinder.cpp(73,65): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\OrfFinder.cpp(76,71): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\OrfFinder.cpp(77,91): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
   Senior_Project.vcxproj -> C:\Users\temp\Desktop\senior_project\Senior_Project\x64\Debug\Senior_Project.exe

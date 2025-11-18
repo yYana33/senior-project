@@ -6,6 +6,7 @@
 #include "SearchAlgorithm.h"
 #include "TrieIndex.h"
 #include "OrfFinder.h"
+#include "Aligner.h"
 
 using namespace std;
 
@@ -15,9 +16,9 @@ int main() {
     cout << "real FASTA file test" << endl;
 
     //file 
-    string fastaFilePath = "C:/Users/temp/Desktop/senior_project/Senior_Project/Senior_Project/data/sample.fasta";
+    string fastaFilePath = "C:/Users/temp/Desktop/senior_project/Senior_Project/Senior_Project/data/sample.fasta"; //need to fix
 
-    cout << "\n1. Testing with the FASTA file: " << fastaFilePath << endl;
+    cout << "Testing with the FASTA file: " << fastaFilePath << endl;
 
     auto sequence = FastaParser::parseFromFile(fastaFilePath);
     if (sequence) {
@@ -48,7 +49,7 @@ int main() {
         double gc_content = (g_count + c_count) * 100.0 / seq.length();
         cout << "GC Content: " << gc_content << "%" << endl;
 
-        cout << "\n2. Testing Boyer-Moore search algorithm:" << endl;
+        cout << "Testing Boyer-Moore search algorithm:" << endl;
         cout << "\n" << endl;
 
         //testing with common codons
@@ -69,63 +70,13 @@ int main() {
             }
         }
 
-
-
-
-
-        // TRIE TEST
-        cout << "\n4. Testing Trie index:" << endl;
-
-
-        TrieIndex trie(3); 
-        trie.buildIndex(seq); // Build index from the loaded sequence
-
-        vector<string> testCodons = { "ATG", "TAA", "TAG", "TGA" };
-        for (const auto& codon : testCodons) {
-            auto positions = trie.findPositions(codon);
-            cout << "Codon '" << codon << "' found at " << positions.size() << " positions" << endl;
-            if (!positions.empty() && positions.size() <= 5) {
-                for (size_t i = 0; i < min(positions.size(), size_t(3)); i++) {
-                    cout << positions[i] << " ";
-                }
-                cout << endl;
-            }
-        }
-
-
-
-        //ORF FINDER TEST
-        cout << "\n5. Testing ORF finder:" << endl;
-
-
-        //using the same trie built earlier
-       vector<ORF> foundORFs = OrfFinder::findORFs(seq, trie);
-
-        vector<ORF> longORFs = OrfFinder::filterByLength(foundORFs, 150); 
-        vector<ORF> nonOverlappingORFs = OrfFinder::removeOverlaps(foundORFs);
-
-        cout << "All ORFs:" << endl;
-        OrfFinder::printORFs(foundORFs);
-
-        cout << "\nLong ORFs (>150 nt):" << endl;
-        OrfFinder::printORFs(longORFs);
-
-        cout << "\nNon-overlapping ORFs:" << endl;
-        OrfFinder::printORFs(nonOverlappingORFs);
-
-        //test - specific frames
-        vector<ORF> forwardORFs = OrfFinder::filterByFrame(foundORFs, 1);
-        cout << "\nFRAME +1 ORFs only:" << endl;
-        OrfFinder::printORFs(forwardORFs);
-
-
         //letting user test their own pattern
-        cout << "\n3. Custom pattern search:" << endl;
+        cout << "Custom pattern search:" << endl;
         cout << "\n" << endl;
         cout << "Enter a DNA pattern to search for (or 'quit' to exit): ";
 
         string userPattern;
-        cin >> userPattern;
+        std::cin >> userPattern;
 
         if (userPattern != "quit") {
             //validating it's a DNA pattern
@@ -153,15 +104,105 @@ int main() {
             }
         }
 
+
+
+
+        // TRIE TEST
+        cout << "Testing Trie index:" << endl;
+
+
+        TrieIndex trie(3); 
+        trie.buildIndex(seq); //Build index from the loaded sequence
+
+        vector<string> testCodons = { "ATG", "TAA", "TAG", "TGA" };
+        for (const auto& codon : testCodons) {
+            auto positions = trie.findPositions(codon);
+            cout << "Codon '" << codon << "' found at " << positions.size() << " positions" << endl;
+            if (!positions.empty() && positions.size() <= 5) {
+                for (size_t i = 0; i < min(positions.size(), size_t(3)); i++) {
+                    cout << positions[i] << " ";
+                }
+                cout << endl;
+            }
+        }
+
+
+
+        //ORF FINDER TEST
+        cout << "Testing ORF finder:" << endl;
+
+
+        //using the same trie built earlier
+       vector<ORF> foundORFs = OrfFinder::findORFs(seq, trie);
+
+        vector<ORF> longORFs = OrfFinder::filterByLength(foundORFs, 150); 
+        vector<ORF> nonOverlappingORFs = OrfFinder::removeOverlaps(foundORFs);
+
+        cout << "All ORFs:" << endl;
+        OrfFinder::printORFs(foundORFs);
+
+        cout << "\nLong ORFs (>150 nt):" << endl;
+        OrfFinder::printORFs(longORFs);
+
+        cout << "\nNon-overlapping ORFs:" << endl;
+        OrfFinder::printORFs(nonOverlappingORFs);
+
+        //test - specific frames
+        vector<ORF> forwardORFs = OrfFinder::filterByFrame(foundORFs, 1);
+        cout << "\nFRAME +1 ORFs only:" << endl;
+        OrfFinder::printORFs(forwardORFs);
+
+
+      
+
+
+
+
+        //ALIGNMENT TEST 2
+        cout << "Testing sequence comparison" << endl;
+
+
+        //First test with some sample sequences
+        string testSeq1 = "ATCGATTAGCCGTA";
+        string testSeq2 = "ATCGTTAGCCGTA";
+
+        cout << "Sequence 1: " << testSeq1 << endl;
+        cout << "Sequence 2: " << testSeq2 << endl;
+        cout << endl;
+
+        Aligner aligner;
+        Alignment result = aligner.align(testSeq1, testSeq2);
+        Aligner::printAlignment(result);
+
+        //Test with a second sequence - the first one stays the same as the one used for ORF for now
+        cout << "Loading second sequence for alignment comparison" << endl;
+        string secondFastaFilePath = "C:/Users/temp/Desktop/senior_project/Senior_Project/Senior_Project/data/sample2.fasta"; //like this for now, will fix it so the user can pick a file
+
+        auto sequence2 = FastaParser::parseFromFile(secondFastaFilePath);
+        if (sequence2) {
+            cout << "Second sequence loaded successfully!" << endl;
+            sequence2->printSummary();
+
+            //performing the alignment between the two sequences
+            Aligner aligner;
+            Alignment result = aligner.align(sequence->getSequence(), sequence2->getSequence());
+            Aligner::printAlignment(result);
+
+        }
+        else {
+            cout << "Erroor! Could not load a second sequence! " << endl;
+            return 1;
+        }
+
     }
     else {
-        cout << "ERROR! Failed to parse the FASTA file!" << endl;
+        cout << "Error! Failed to parse the FASTA file!" << endl;
         return 1;
     }
 
     cout << "\nPress Enter to exit...";
-    cin.ignore(); 
-    cin.get();   
+    std::cin.ignore(); 
+    std::cin.get();   
 
     return 0;
 }

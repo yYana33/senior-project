@@ -121,7 +121,7 @@ void Aligner::traceback(const std::vector<std::vector<int>>& matrix,
 }
 
 void Aligner::printAlignment(const Alignment& alignment) {
-    cout << "Alignment results:" << endl;
+    cout << "All alignment results below" << endl;
     cout << "Alignment score: " << alignment.score << endl;
     cout << "Similarity: " << fixed << setprecision(1) << calculateSimilarity(alignment) << "%" << endl;
     cout << "Sequence 1: " << alignment.start1 << " - " << alignment.end1 << endl;
@@ -145,7 +145,7 @@ void Aligner::printAlignment(const Alignment& alignment) {
     int matches = count(alignment.matchLine.begin(), alignment.matchLine.end(), '|');
     int gaps = count(alignment.sequence1.begin(), alignment.sequence1.end(), '-') + count(alignment.sequence2.begin(), alignment.sequence2.end(), '-');
 
-    cout << "Alignment Statistics:" << endl;
+    cout << "Alignment statistics below" << endl;
     cout << "Length: " << alignment.sequence1.length() << " bases" << endl;
     cout << "Matches: " << matches << endl;
     cout << "Gaps: " << gaps << endl;
