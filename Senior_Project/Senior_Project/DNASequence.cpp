@@ -7,11 +7,13 @@ using namespace std;
 DNASequence::DNASequence(const std::string& seq, const std::string& hdr)
     : sequence(seq), header(hdr) {}
 
+
 bool DNASequence::isValidDNA() const {
     return std::all_of(sequence.begin(), sequence.end(), [](char c) {
         return c == 'A' || c == 'T' || c == 'C' || c == 'G' || c == 'a' || c == 't' || c == 'c' || c == 'g';
         });
 }
+
 
 void DNASequence::printSummary() const {
     cout << "DNA Sequence Summary" << endl;

@@ -1,10 +1,6 @@
-﻿  Aligner.cpp
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(12,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(13,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(133,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(145,17): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(146,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp(158,17): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+﻿  DNASequence.cpp
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\DNASequence.cpp(37,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  FastaParser.cpp
   main.cpp
   Generating Code...
   Senior_Project.vcxproj -> C:\Users\temp\Desktop\senior_project\Senior_Project\x64\Debug\Senior_Project.exe

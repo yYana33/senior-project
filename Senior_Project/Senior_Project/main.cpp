@@ -21,6 +21,12 @@ int main() {
     cout << "Testing with the FASTA file: " << fastaFilePath << endl;
 
     auto sequence = FastaParser::parseFromFile(fastaFilePath);
+
+    if (!sequence) {
+    cout << "The program cannot continue without a valid DNA sequence." << endl;
+    return 1; 
+}
+
     if (sequence) {
         sequence->printSummary();
 
@@ -48,6 +54,8 @@ int main() {
 
         double gc_content = (g_count + c_count) * 100.0 / seq.length();
         cout << "GC Content: " << gc_content << "%" << endl;
+        
+
 
         cout << "Testing Boyer-Moore search algorithm:" << endl;
         cout << "\n" << endl;
@@ -179,6 +187,12 @@ int main() {
         string secondFastaFilePath = "C:/Users/temp/Desktop/senior_project/Senior_Project/Senior_Project/data/sample2.fasta"; //like this for now, will fix it so the user can pick a file
 
         auto sequence2 = FastaParser::parseFromFile(secondFastaFilePath);
+        
+        if (!sequence2) {
+            cout << "Sequence alignment test requires a second valid FASTA files!" << endl;
+            return 1; 
+        }
+        
         if (sequence2) {
             cout << "Second sequence loaded successfully!" << endl;
             sequence2->printSummary();
@@ -189,10 +203,6 @@ int main() {
             Aligner::printAlignment(result);
 
         }
-        else {
-            cout << "Erroor! Could not load a second sequence! " << endl;
-            return 1;
-        }
 
     }
     else {
@@ -200,7 +210,7 @@ int main() {
         return 1;
     }
 
-    cout << "\nPress Enter to exit...";
+    cout << "\nPress enter to exit...";
     std::cin.ignore(); 
     std::cin.get();   
 

@@ -25,6 +25,8 @@ unique_ptr<DNASequence> FastaParser::parseFromString(const std::string& data) {
     stringstream ss(data);
     string line;
     bool isFirstLine = true;
+    bool hasHeader = false;
+    bool hasSequence = false;
 
     while (getline(ss, line)) {
         if (line.empty()) continue;
@@ -32,8 +34,8 @@ unique_ptr<DNASequence> FastaParser::parseFromString(const std::string& data) {
         //checking if the line is a header line 
         if (line[0] == '>') {
             if (!isFirstLine) {
-           
-                break;
+                cerr << "Error! Multiple sequences found in FASTA file; only single sequences allowed." << endl;
+                return nullptr;
             }
             //extracting the header (removing the '>')
             header = line.substr(1);
@@ -41,18 +43,56 @@ unique_ptr<DNASequence> FastaParser::parseFromString(const std::string& data) {
             if (!header.empty() && header.back() == '\r') {
                 header.pop_back();
             }
+            hasHeader = true;
             isFirstLine = false;
         }
         else {
-            //any line that doesn’t start with `>` is part of the DNA sequence.
+            //any line that doesn't start with `>` is part of the DNA sequence.
             string cleanLine = line;
             if (!cleanLine.empty() && cleanLine.back() == '\r') {
                 cleanLine.pop_back();
             }
+
+            for (char c : cleanLine) {
+                char upperC = toupper(c);
+                if (upperC != 'A' && upperC != 'T' && upperC != 'C' && upperC != 'G') { 
+                    cerr << "Error! Invalid character '" << c << "' found in sequence." << endl;
+                    cerr << "Only A, T, C, and G are allowed." << endl;
+                    return nullptr;
+                }
+            }
+
             sequence += cleanLine;
+            hasSequence = true;
         }
+    } 
+
+    if (!hasHeader) {
+        cerr << "Error! No header line (starting with '>') found in FASTA file." << endl;
+        return nullptr;
     }
-    //creating a DNASequence object
+
+    if (!hasSequence) {
+        cerr << "Error! No sequence data found in FASTA file." << endl;
+        return nullptr;
+    }
+
+    if (sequence.empty()) {
+        cerr << "Error! Sequence is empty." << endl;
+        return nullptr;
+    }
+
+    //Final validation
+    auto dnaSeq = make_unique<DNASequence>(sequence, header);
+    if (!dnaSeq->isValidDNA()) {
+        cerr << "Error! Sequence validation failed." << endl;
+        return nullptr;
+    }
+
+    return dnaSeq;
+}
+   
+    /*
     if (!header.empty() && !sequence.empty()) {
         return make_unique<DNASequence>(sequence, header);
     }
@@ -60,3 +100,4 @@ unique_ptr<DNASequence> FastaParser::parseFromString(const std::string& data) {
     cerr << "Invalid file format!" << endl;
     return nullptr;
 }
+*/
