@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\FastaParser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\FastaParser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\DNASequence.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\DNASequence.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|solutionrelative:Senior_Project\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{581C645F-086B-4496-BE36-7860C2B614E5}|Senior_Project\\Senior_Project.vcxproj|C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\TrieNode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -107,13 +107,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FastaParser.cpp",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\FastaParser.cpp",
               "RelativeDocumentMoniker": "Senior_Project\\FastaParser.cpp",
               "ToolTip": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\FastaParser.cpp",
               "RelativeToolTip": "Senior_Project\\FastaParser.cpp",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADUAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACQAAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-12T17:38:39.325Z",
               "EditorCaption": ""
@@ -132,13 +132,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\main.cpp",
               "RelativeDocumentMoniker": "Senior_Project\\main.cpp",
               "ToolTip": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\main.cpp",
               "RelativeToolTip": "Senior_Project\\main.cpp",
-              "ViewState": "AgIAALoAAAAAAAAAAAAAAM4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAABoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-12T12:19:03.954Z",
               "EditorCaption": ""
@@ -169,13 +169,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "DNASequence.cpp",
               "DocumentMoniker": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\DNASequence.cpp",
               "RelativeDocumentMoniker": "Senior_Project\\DNASequence.cpp",
               "ToolTip": "C:\\Users\\temp\\Desktop\\senior_project\\Senior_Project\\Senior_Project\\DNASequence.cpp",
               "RelativeToolTip": "Senior_Project\\DNASequence.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-12T17:06:08.979Z",
               "EditorCaption": ""

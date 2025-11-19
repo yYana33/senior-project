@@ -128,21 +128,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Aligner.cpp" />
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="DNASequence.cpp" />
     <ClCompile Include="FastaParser.cpp" />
     <ClCompile Include="Feature.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="ResultsPanelcpp.cpp" />
     <ClCompile Include="SearchAlgorithm.cpp" />
     <ClCompile Include="OrfFinder.cpp" />
+    <ClCompile Include="Sequence.cpp" />
     <ClCompile Include="TrieIndex.cpp" />
     <ClCompile Include="TrieNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aligner.h" />
+    <ClInclude Include="Controller.h" />
     <ClInclude Include="DNASequence.h" />
     <ClInclude Include="FastaParser.h" />
     <ClInclude Include="Feature.h" />
+    <ClInclude Include="MainWindow.h" />
     <ClInclude Include="OrfFinder.h" />
+    <ClInclude Include="ResultsPanel.h" />
+    <ClInclude Include="Sequence.h" />
     <ClInclude Include="TrieIndex.h" />
     <ClInclude Include="SearchAlgorithm.h" />
     <ClInclude Include="TrieNode.h" />
