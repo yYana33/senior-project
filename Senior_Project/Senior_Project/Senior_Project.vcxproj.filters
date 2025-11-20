@@ -37,6 +37,12 @@
     <Filter Include="Source Files\gui">
       <UniqueIdentifier>{384998de-bd36-4379-aadb-70bc458c9680}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\features">
+      <UniqueIdentifier>{e5c48b0b-e39d-4244-8e0a-a1d6a1db6e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\features">
+      <UniqueIdentifier>{48390357-2664-4f86-b512-d13bcda3c427}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -78,6 +84,12 @@
     <ClCompile Include="Controller.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
+    <ClCompile Include="Gene.cpp">
+      <Filter>Source Files\features</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchMatch.cpp">
+      <Filter>Source Files\features</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DNASequence.h">
@@ -115,6 +127,12 @@
     </ClInclude>
     <ClInclude Include="Controller.h">
       <Filter>Header Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="Gene.h">
+      <Filter>Header Files\features</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchMatch.h">
+      <Filter>Header Files\features</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

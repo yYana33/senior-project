@@ -1,4 +1,5 @@
 #include "SearchAlgorithm.h"
+#include "SearchMatch.h"
 #include <iostream>
 #include <cstring>
 
@@ -66,4 +67,20 @@ void SearchAlgorithm::printSearchResults(const std::vector<int>& positions, cons
         }
     }
     cout << " (Total: " << positions.size() << " occurrences)" << endl;
+}
+
+void SearchAlgorithm::searchAndAddMatches(DNASequence& sequence, const std::string& pattern) {
+    //clearing existing search matches 
+    sequence.removeFeaturesOfType("search_match");
+
+    vector<int> positions = boyerMooreSearch(sequence.getSequence(), pattern);
+
+    //SearchMatch features for each found position
+    for (int pos : positions) {
+        int endPos = pos + pattern.length() - 1;
+        auto match = make_unique<SearchMatch>(pos, endPos, pattern);
+        sequence.addFeature(std::move(match));
+    }
+
+    cout << "Added " << positions.size() << " search matches for pattern '" << pattern << "'" << endl;
 }

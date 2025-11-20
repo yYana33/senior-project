@@ -1,9 +1,15 @@
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Aligner.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\Aligner.obj
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Controller.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\Controller.obj
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\DNASequence.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\DNASequence.obj
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\FastaParser.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\FastaParser.obj
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Feature.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\Feature.obj
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Gene.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\Gene.obj
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\main.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\main.obj
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\MainWindow.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\MainWindow.obj
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\ResultsPanelcpp.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\ResultsPanelcpp.obj
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\SearchAlgorithm.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\SearchAlgorithm.obj
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\OrfFinder.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\OrfFinder.obj
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\SearchMatch.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\SearchMatch.obj
+C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\Sequence.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\Sequence.obj
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\TrieIndex.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\TrieIndex.obj
 C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\TrieNode.cpp;C:\Users\temp\Desktop\senior_project\Senior_Project\Senior_Project\x64\Debug\TrieNode.obj

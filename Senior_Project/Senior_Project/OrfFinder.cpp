@@ -1,5 +1,6 @@
 #include "OrfFinder.h"
 #include "DNASequence.h"
+#include "Gene.h"
 #include <iostream>
 #include <algorithm>
 
@@ -125,6 +126,28 @@ void OrfFinder::printORFs(const std::vector<ORF>& orfs) {
     }
 
     cout << "Summary: " << forwardORFs.size() << " forward, " << reverseORFs.size() << " reverse ORFs found." << endl;
+}
+
+void OrfFinder::findAndAddORFs(DNASequence& sequence, TrieIndex& trie) {
+    vector<ORF> orfs = findORFs(sequence.getSequence(), trie);
+
+    // converting each ORF to a Gene feature 
+    for (const auto& orf : orfs) { 
+        int gcCount = 0; //calculating the cg content for now, could be changed
+        for (char c : orf.sequence) {
+            if (toupper(c) == 'G' || toupper(c) == 'C') {
+                gcCount++;
+            }
+        }
+
+        double gcContent = orf.sequence.empty() ? 0.0 : (double)gcCount / orf.sequence.length();
+
+        // Gene feature 
+        auto gene = make_unique<Gene>(orf.start, orf.end, orf.frame, gcContent);
+        sequence.addFeature(std::move(gene));
+    }
+
+    cout << "Added " << orfs.size() << " ORFs as features to sequence" << endl;
 }
 
 std::vector<ORF> OrfFinder::filterByLength(const std::vector<ORF>& orfs, int minLength) {

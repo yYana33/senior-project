@@ -161,10 +161,22 @@ int main() {
         OrfFinder::printORFs(forwardORFs);
 
 
+
+        //POLYMORPHISM TEST
+        cout << "\nTesting polymorphism:" << endl;
+
+        //Test - ORF features
+        OrfFinder::findAndAddORFs(*sequence, trie);
+
+        //test - search features  
+        SearchAlgorithm::searchAndAddMatches(*sequence, "ATG");
+
+        cout << "\nAll features in sequence:" << endl;
+        const auto& features = sequence->getFeatures();
+        for (const auto& feature : features) {
+            cout << "• " << feature->getDisplayName() << " - " << feature->getDetails() << endl;
+        }
       
-
-
-
 
         //ALIGNMENT TEST 2
         cout << "Testing sequence comparison" << endl;

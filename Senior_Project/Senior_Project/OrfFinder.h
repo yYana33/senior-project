@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include "TrieIndex.h"
+#include "DNASequence.h"
+
 
 //a found ORF
 struct ORF {
@@ -11,6 +13,10 @@ struct ORF {
     int frame; //+1, +2, +3 (forward) or -1, -2, -3 (reverse)
     std::string sequence; 
 };
+
+/*
+static void findORFs(DNASequence& sequence, TrieIndex& trie);
+*/
 
 class OrfFinder {
 private:
@@ -27,6 +33,10 @@ public:
 
     static std::vector<ORF> removeOverlaps(const std::vector<ORF>& orfs);
 
+    //a function to add ORFs as features to DNASequence
+    static void findAndAddORFs(DNASequence& sequence, TrieIndex& trie);
+
 private:
     static void scanFrame(const std::string& frameSequence, const std::string& originalSequence, int frameOffset, int frameNumber, TrieIndex& trie, std::vector<ORF>& results);
 };
+
