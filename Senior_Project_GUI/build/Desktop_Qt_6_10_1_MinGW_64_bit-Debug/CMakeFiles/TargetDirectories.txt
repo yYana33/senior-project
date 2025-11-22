@@ -1,0 +1,5 @@
+C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/DNAVisualizer.dir
+C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/DNAVisualizer_autogen_timestamp_deps.dir
+C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/DNAVisualizer_autogen.dir
