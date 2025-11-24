@@ -1,5 +1,6 @@
 #include "MainWindow.h"
 #include <iostream>
+#include <qapplication.h>
 
 using namespace std;
 
@@ -9,6 +10,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     setupToolbar();
 
     connect(loadAction, &QAction::triggered, this, &MainWindow::loadFile);
+    connect(loadSecondAction, &QAction::triggered, this, &MainWindow::loadSecondFile);
     connect(searchAction, &QAction::triggered, this, &MainWindow::searchSequence);
     connect(orfAction, &QAction::triggered, this, &MainWindow::findORFs);
     connect(alignAction, &QAction::triggered, this, &MainWindow::alignSequences);
@@ -31,22 +33,25 @@ void MainWindow::setupUI() {
 
     mainLayout = new QVBoxLayout(centralWidget);
 
-    contentLayout = new QHBoxLayout();//main area
+    //the main content area
+    contentLayout = new QHBoxLayout();
 
-    //will upgrade
     sequenceDisplay = new QTextEdit(this);
     sequenceDisplay->setReadOnly(true);
-    sequenceDisplay->setMaximumHeight(200);
+    sequenceDisplay->setMaximumHeight(150);
+    sequenceDisplay->setFont(QFont("Arial", 9));
 
     resultsDisplay = new QTextEdit(this);
     resultsDisplay->setReadOnly(true);
+    resultsDisplay->setFont(QFont("Arial", 9));
+    resultsDisplay->setLineWrapMode(QTextEdit::NoWrap);
 
     contentLayout->addWidget(sequenceDisplay);
     contentLayout->addWidget(resultsDisplay);
 
     mainLayout->addLayout(contentLayout);
 
-    statusBar()->showMessage("Ready to load a DNA sequence");
+    statusBar()->showMessage("Ready to load DNA sequence");
 }
 
 void MainWindow::setupMenus() {
@@ -55,6 +60,21 @@ void MainWindow::setupMenus() {
     loadAction = new QAction("&Load FASTA...", this);
     loadAction->setShortcut(QKeySequence::Open);
     fileMenu->addAction(loadAction);
+
+    loadSecondAction = new QAction("Load &Second FASTA...", this);
+    loadSecondAction->setShortcut(Qt::CTRL | Qt::Key_2);
+    fileMenu->addAction(loadSecondAction);
+
+    QAction* testAction = new QAction("Load &Test Sequence", this);
+    fileMenu->addAction(testAction);
+    connect(testAction, &QAction::triggered, this, &MainWindow::loadTestSequence);
+
+    fileMenu->addSeparator();
+
+    exitAction = new QAction("E&xit", this);
+    exitAction->setShortcut(QKeySequence::Quit);
+    fileMenu->addAction(exitAction);
+    connect(exitAction, &QAction::triggered, this, &QMainWindow::close);
 
     fileMenu->addSeparator();
 
@@ -73,7 +93,7 @@ void MainWindow::setupMenus() {
     orfAction->setShortcut(Qt::CTRL | Qt::Key_G);
     analysisMenu->addAction(orfAction);
 
-    alignAction = new QAction("&Align Sequences...", this);
+    alignAction = new QAction("&Align Sequences", this);
     alignAction->setShortcut(Qt::CTRL | Qt::Key_A);
     analysisMenu->addAction(alignAction);
 
@@ -82,10 +102,16 @@ void MainWindow::setupMenus() {
     helpMenu->addAction(aboutAction);
 }
 
+void MainWindow::loadTestSequence() {
+    updateDisplay();
+    statusBar()->showMessage("Loaded test sequence for debugging");
+}
+
 void MainWindow::setupToolbar() {
     QToolBar* toolBar = addToolBar("Toolbar");
 
     toolBar->addAction(loadAction);
+    toolBar->addAction(loadSecondAction);
     toolBar->addSeparator();
     toolBar->addAction(searchAction);
     toolBar->addAction(orfAction);
@@ -93,41 +119,139 @@ void MainWindow::setupToolbar() {
 }
 
 void MainWindow::loadFile() {
+    QDir currentDir = QDir::current();
+    qDebug() << "Current directory:" << currentDir.absolutePath();
+
     QString fileName = QFileDialog::getOpenFileName(
         this,
         "Open FASTA File",
-        "",
+        currentDir.absolutePath(),
         "FASTA Files (*.fasta *.fa *.fsa);;All Files (*.*)"
         );
 
     if (!fileName.isEmpty()) {
         statusBar()->showMessage("Loading: " + fileName);
+        qDebug() << "User selected file:" << fileName;
 
-        //TEMPORARY
-        sequenceDisplay->setPlainText("Loaded: " + fileName + "\n\n[FASTA content would be displayed here]");
-        resultsDisplay->setPlainText("File loaded successfully!\n\nUse Analysis menu to perform operations.");
-
-        cout << "Loading file: " << fileName.toStdString() << endl;
+        if (controller.loadSequence(fileName)) {
+            statusBar()->showMessage("Successfully loaded: " + fileName);
+            updateDisplay();
+            qDebug() << "Displaying now";
+        } else {
+            statusBar()->showMessage("Failed to load: " + fileName);
+            QMessageBox::warning(this, "Load error", "Could not load/validate the FASTA file.");
+            qDebug() << "File load failed!";
+        }
+    } else {
+        qDebug() << "User cancelled file selection";
     }
 }
 
+void MainWindow::loadSecondFile() {
+    QDir currentDir = QDir::current();
+    QString fileName = QFileDialog::getOpenFileName(
+        this,
+        "Open Second FASTA File for Alignment",
+        currentDir.absolutePath(),
+        "FASTA Files (*.fasta *.fa *.fsa);;All Files (*.*)"
+        );
+
+    if (!fileName.isEmpty()) {
+        statusBar()->showMessage("Loading second sequence: " + fileName);
+
+        if (controller.loadSecondSequence(fileName)) {
+            statusBar()->showMessage("Successfully loaded second sequence: " + fileName);
+            updateDisplay();
+        } else {
+            statusBar()->showMessage("Failed to load second sequence: " + fileName);
+            QMessageBox::warning(this, "Load error", "Could not load/validate the second FASTA file.");
+        }
+    }
+}
+
+void MainWindow::updateDisplay() {
+    qDebug() << "Updating display..";
+
+    if (controller.hasSequence()) {
+        QString sequenceInfo = controller.getSequenceInfo();
+        sequenceDisplay->setPlainText(sequenceInfo);
+
+        if (controller.hasSecondSequence()) {
+            QString alignmentInfo = controller.getAlignmentInfo();
+          //QString alignmentInfo = controller.getDetailedAlignment();
+            resultsDisplay->setPlainText(alignmentInfo);
+        } else {
+            resultsDisplay->setPlainText(controller.getFeaturesInfo());
+        }
+    } else {
+        sequenceDisplay->setPlainText("No sequence loaded. Load FASTA to begin.");
+        resultsDisplay->setPlainText("Analysis results will appear here.");
+    }
+
+    sequenceDisplay->repaint();
+    resultsDisplay->repaint();
+}
+
 void MainWindow::searchSequence() {
+    if (!controller.hasSequence()) {
+        QMessageBox::information(this, "No sequence", "Please load a sequence first.");
+        return;
+    }
+
     bool ok;
     QString pattern = QInputDialog::getText(this, "Search Pattern", "Enter DNA pattern to search for:", QLineEdit::Normal, "ATG", &ok);
     if (ok && !pattern.isEmpty()) {
-        resultsDisplay->append("Searching for pattern: " + pattern);
-        //Will update so it connects to the actual search algorithm
+        qDebug() << "MAINWINDOW starting search";
+        controller.searchPattern(pattern);
+
+        updateDisplay();
+
+        QApplication::processEvents();
+
+        statusBar()->showMessage("Search completed for: " + pattern);
+        qDebug() << "MAINWINDOW search UI updated";
     }
 }
 
 void MainWindow::findORFs() {
-    resultsDisplay->append("Finding ORFs...");
-    //Will update
+    if (!controller.hasSequence()) {
+        QMessageBox::information(this, "No sequence", "Please load a sequence first.");
+        return;
+    }
+
+    qDebug() << "MAINWINDOW: Starting ORF finding";
+    statusBar()->showMessage("Finding ORFs...");
+
+    controller.findORFs();
+
+    updateDisplay();
+
+    QApplication::processEvents();
+
+    statusBar()->showMessage("ORF finding completed");
+    qDebug() << "MAINWINDOW: ORF UI updated";
 }
 
 void MainWindow::alignSequences() {
-    resultsDisplay->append("Aligning sequences...");
-    //Will update
+    if (!controller.hasSequence() || !controller.hasSecondSequence()) {
+        QMessageBox::information(this, "Alignment",
+        "Please load two sequences first:\n"
+        "1. Use 'Load FASTA' for the first sequence\n"
+        "2. Use 'Load Second FASTA' for the second sequence");
+        return;
+    }
+
+    qDebug() << "MAINWINDOW starting sequence alignment";
+    statusBar()->showMessage("Aligning sequences..");
+
+    controller.alignSequences();
+
+    updateDisplay();
+
+    QApplication::processEvents();
+
+    statusBar()->showMessage("Sequence alignment completed");
+    qDebug() << "MAINWINDOW alignment UI updated";
 }
 
 void MainWindow::showAbout() {
@@ -138,3 +262,4 @@ void MainWindow::showAbout() {
                        "<p>A tool for visualizing and analyzing DNA sequences with "
                        "Boyer-Moore search, ORF finding, and Smith-Waterman alignment.</p>");
 }
+

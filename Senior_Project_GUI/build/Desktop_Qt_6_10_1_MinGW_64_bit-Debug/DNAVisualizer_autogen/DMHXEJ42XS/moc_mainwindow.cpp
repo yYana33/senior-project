@@ -42,6 +42,8 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "MainWindow",
         "loadFile",
         "",
+        "loadTestSequence",
+        "loadSecondFile",
         "searchSequence",
         "findORFs",
         "alignSequences",
@@ -51,14 +53,18 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     QtMocHelpers::UintData qt_methods {
         // Slot 'loadFile'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'searchSequence'
+        // Slot 'loadTestSequence'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'findORFs'
+        // Slot 'loadSecondFile'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'alignSequences'
+        // Slot 'searchSequence'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'showAbout'
+        // Slot 'findORFs'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'alignSequences'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'showAbout'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -83,10 +89,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->loadFile(); break;
-        case 1: _t->searchSequence(); break;
-        case 2: _t->findORFs(); break;
-        case 3: _t->alignSequences(); break;
-        case 4: _t->showAbout(); break;
+        case 1: _t->loadTestSequence(); break;
+        case 2: _t->loadSecondFile(); break;
+        case 3: _t->searchSequence(); break;
+        case 4: _t->findORFs(); break;
+        case 5: _t->alignSequences(); break;
+        case 6: _t->showAbout(); break;
         default: ;
         }
     }
@@ -112,14 +120,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
 }
