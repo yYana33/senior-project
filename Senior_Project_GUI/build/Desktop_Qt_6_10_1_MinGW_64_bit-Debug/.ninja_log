@@ -99,3 +99,14 @@
 36923	73019	7856030867023144	CMakeFiles/DNAVisualizer.dir/gui/Controller.cpp.obj	198772290f298073
 39122	84410	7856030889015345	CMakeFiles/DNAVisualizer.dir/gui/mainwindow.cpp.obj	3185d6be4dcd1b5f
 84411	88743	7856031341893990	DNAVisualizer.exe	44e44c92847f17f3
+212	9480	7856897684715999	DNAVisualizer_autogen/timestamp	2d4e130f2e603584
+212	9480	7856897684715999	DNAVisualizer_autogen/mocs_compilation.cpp	2d4e130f2e603584
+212	9480	7856897684715999	C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/DNAVisualizer_autogen/timestamp	2d4e130f2e603584
+212	9480	7856897684715999	C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/DNAVisualizer_autogen/mocs_compilation.cpp	2d4e130f2e603584
+9677	21871	7856897694130626	CMakeFiles/DNAVisualizer.dir/features/Gene.cpp.obj	3a4cd4bd2816504b
+9596	24458	7856897693321081	CMakeFiles/DNAVisualizer.dir/core/DNASequence.cpp.obj	c8538f550b5eb39b
+9781	52496	7856897695170037	CMakeFiles/DNAVisualizer.dir/gui/Controller.cpp.obj	198772290f298073
+9534	56430	7856897692701436	CMakeFiles/DNAVisualizer.dir/main.cpp.obj	363a1b42659044c0
+9488	57797	7856897692241697	CMakeFiles/DNAVisualizer.dir/DNAVisualizer_autogen/mocs_compilation.cpp.obj	49f80070420f815f
+9911	59101	7856897696479280	CMakeFiles/DNAVisualizer.dir/gui/mainwindow.cpp.obj	3185d6be4dcd1b5f
+59102	65301	7856898188377930	DNAVisualizer.exe	44e44c92847f17f3

@@ -1,5 +1,6 @@
 #include "Controller.h"
 #include <sstream>
+#include <algorithm>
 #include <iostream>
 #include <iomanip>
 #include <QDebug>
@@ -21,12 +22,103 @@ bool Controller::loadSequence(const QString& filePath) {
     if (newSequence) {
         currentSequence = std::move(newSequence);
         qDebug() << "Successfully loaded sequence! Length:" << currentSequence->length();
+
+        calculateStatistics();
         updateTrieIndex();
+        runAutoSearch();
+
         return true;
     } else {
         qDebug() << "Failed to load sequence!";
         return false;
     }
+}
+
+void Controller::calculateStatistics() {
+    if (!currentSequence) return;
+
+    const std::string& sequence = currentSequence->getSequence();
+    baseCounts.clear();
+
+    std::vector<std::pair<std::string, int>> counts = {
+        {"A", 0}, {"T", 0}, {"C", 0}, {"G", 0}
+    };
+
+    for (char c : sequence) {
+        char upperC = toupper(c);
+        if (upperC == 'A') counts[0].second++;
+        else if (upperC == 'T') counts[1].second++;
+        else if (upperC == 'C') counts[2].second++;
+        else if (upperC == 'G') counts[3].second++;
+    }
+
+    baseCounts = counts;
+    qDebug() << "Statistics calculated for sequence of length" << sequence.length();
+}
+
+QString Controller::getStatisticsInfo() const {
+    if (!currentSequence) return "No sequence loaded";
+
+    std::stringstream ss;
+    ss << "Sequence Statistics:\n";
+
+    int totalBases = currentSequence->length();
+
+    for (const auto& baseCount : baseCounts) {
+        double percentage = (baseCount.second * 100.0) / totalBases;
+        ss << baseCount.first << ": " << baseCount.second << " ("
+           << std::fixed << std::setprecision(2) << percentage << "%)\n";
+    }
+
+    int gcCount = 0;
+    for (const auto& baseCount : baseCounts) {
+        if (baseCount.first == "G" || baseCount.first == "C") {
+            gcCount += baseCount.second;
+        }
+    }
+    double gcPercentage = (gcCount * 100.0) / totalBases;
+    ss << "GC content: " << std::fixed << std::setprecision(2) << gcPercentage << "%\n";
+    ss << "Total length: " << totalBases << " bases\n";
+
+    return QString::fromStdString(ss.str());
+}
+void Controller::runAutoSearch() {
+    if (!currentSequence) return;
+
+    qDebug() << "Running automatic searches for common motifs...";
+
+    std::vector<std::string> autoPatterns = {
+        "ATG", "TAA", "TAG", "TGA", "GGCC", "ATAT", "CG"
+    };
+
+    std::stringstream ss;
+    ss << "Automatic search for common biological motifs:\n";
+
+    for (const auto& pattern : autoPatterns) {
+        std::vector<int> positions = SearchAlgorithm::boyerMooreSearch(
+            currentSequence->getSequence(), pattern);
+
+        ss << "Pattern '" << pattern << "' found at positions: ";
+        if (positions.empty()) {
+            ss << "None";
+        } else {
+            //showing only the first 10 positions to avoid overwhelming display
+            size_t maxToShow = std::min(positions.size(), size_t(10));
+            for (size_t i = 0; i < maxToShow; i++) {
+                ss << positions[i];
+                if (i < maxToShow - 1) {
+                    ss << ", ";
+                }
+            }
+            if (positions.size() > maxToShow) {
+                ss << "... (and " << (positions.size() - maxToShow) << " more)";
+            }
+        }
+        ss << " (Total: " << positions.size() << " occurrences)\n";
+    }
+
+    autoSearchResults = QString::fromStdString(ss.str());
+    qDebug() << "Auto-search completed";
 }
 
 bool Controller::loadSecondSequence(const QString& filePath) {
@@ -133,7 +225,7 @@ QString Controller::getAlignmentInfo() const {
 
     ss << "Complete alignment:\n";
 
-    // Displaying alignment in blocks of 80 characters
+    //displaying alignment in blocks of 80 characters
     int blockSize = 80;
     int totalLength = lastAlignment.sequence1.length();
     int blockNumber = 1;

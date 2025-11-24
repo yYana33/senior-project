@@ -19,24 +19,35 @@ public:
 
     bool loadSequence(const QString& filePath);
     bool loadSecondSequence(const QString& filePath);
+    void runAutoSearch();
     void searchPattern(const QString& pattern);
     void findORFs();
     void alignSequences();
     void clearResults();
 
+    QString getStatisticsInfo() const;
     QString getSequenceInfo() const;
     QString getFeaturesInfo() const;
     QString getAlignmentInfo() const;
     bool hasSequence() const { return currentSequence != nullptr; }
     bool hasSecondSequence() const { return secondSequence != nullptr;}
 
+    QString getAutoSearchResults() const {
+        return autoSearchResults;
+    }
+
 private:
     std::unique_ptr<DNASequence> currentSequence;
     std::unique_ptr<DNASequence> secondSequence;
+    std::vector<std::pair<std::string, int>> baseCounts;
+    void calculateStatistics();
     Alignment lastAlignment;
     bool hasAlignmentResult = false;
     TrieIndex trieIndex{3};
     Aligner aligner;
+    QString autoSearchResults;
 
     void updateTrieIndex();
 };
+
+

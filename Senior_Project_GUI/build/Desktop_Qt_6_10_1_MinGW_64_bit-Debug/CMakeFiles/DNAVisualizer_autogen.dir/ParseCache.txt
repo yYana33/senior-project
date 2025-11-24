@@ -352,7 +352,6 @@ C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/Controller.h
  mdp:C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/io/FastaParser.h
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/ResultsPanel.h
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/Sequence.h
-C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/algorithms/SearchAlgorithm.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/mainwindow.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/QObject
@@ -819,14 +818,15 @@ C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/mainwindow.h
  mdp:C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/Controller.h
  mdp:C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/mainwindow.h
  mdp:C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/io/FastaParser.h
+C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/algorithms/SearchAlgorithm.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/io/FastaParser.h
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/algorithms/Aligner.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/algorithms/TrieIndex.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/algorithms/TrieNode.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/core/Feature.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/features/Gene.cpp
-C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/main.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/features/SearchMatch.cpp
+C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/main.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/Controller.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/ResultsPanel.cpp
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/mainwindow.cpp

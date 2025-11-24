@@ -38,12 +38,12 @@ void MainWindow::setupUI() {
 
     sequenceDisplay = new QTextEdit(this);
     sequenceDisplay->setReadOnly(true);
-    sequenceDisplay->setMaximumHeight(150);
-    sequenceDisplay->setFont(QFont("Arial", 9));
+    sequenceDisplay->setMaximumHeight(300);  //increased height so the info can fit
+    sequenceDisplay->setFont(QFont("Courier", 9));
 
     resultsDisplay = new QTextEdit(this);
     resultsDisplay->setReadOnly(true);
-    resultsDisplay->setFont(QFont("Arial", 9));
+    resultsDisplay->setFont(QFont("Courier", 9));
     resultsDisplay->setLineWrapMode(QTextEdit::NoWrap);
 
     contentLayout->addWidget(sequenceDisplay);
@@ -173,18 +173,29 @@ void MainWindow::updateDisplay() {
     qDebug() << "Updating display..";
 
     if (controller.hasSequence()) {
-        QString sequenceInfo = controller.getSequenceInfo();
-        sequenceDisplay->setPlainText(sequenceInfo);
+        QString displayText;
+
+        //basic seq info
+        displayText += controller.getSequenceInfo() + "\n\n";
+
+        //stats
+        displayText += controller.getStatisticsInfo() + "\n\n";
+
+        //auto-search results
+        if (!controller.hasSecondSequence()) {
+            displayText += controller.getAutoSearchResults() + "\n\n";
+        }
+
+        sequenceDisplay->setPlainText(displayText);
 
         if (controller.hasSecondSequence()) {
-            QString alignmentInfo = controller.getAlignmentInfo();
-          //QString alignmentInfo = controller.getDetailedAlignment();
-            resultsDisplay->setPlainText(alignmentInfo);
+            resultsDisplay->setPlainText(controller.getAlignmentInfo());
         } else {
             resultsDisplay->setPlainText(controller.getFeaturesInfo());
         }
+
     } else {
-        sequenceDisplay->setPlainText("No sequence loaded. Load FASTA to begin.");
+        sequenceDisplay->setPlainText("No sequence loaded. Use File → Load FASTA to begin.");
         resultsDisplay->setPlainText("Analysis results will appear here.");
     }
 
