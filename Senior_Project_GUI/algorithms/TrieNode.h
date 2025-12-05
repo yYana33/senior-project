@@ -15,10 +15,7 @@ public:
     TrieNode* getChild(char nucleotide);
 
     bool hasChild(char nucleotide);
-
     void addPosition(int position);
-
     const std::vector<int>& getPositions() const;
-
     const std::unordered_map<char, TrieNode*>& getChildren() const;//for traversal
 };

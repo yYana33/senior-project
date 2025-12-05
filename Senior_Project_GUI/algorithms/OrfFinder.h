@@ -4,7 +4,6 @@
 #include "TrieIndex.h"
 #include "core/DNASequence.h"
 
-
 //a found ORF
 struct ORF {
     int start;
@@ -14,23 +13,15 @@ struct ORF {
     std::string sequence;
 };
 
-/*
-static void findORFs(DNASequence& sequence, TrieIndex& trie);
-*/
-
 class OrfFinder {
 private:
     static const std::vector<std::string> STOP_CODONS;
 
 public:
     static std::vector<ORF> findORFs(const std::string& sequence, TrieIndex& trie);
-
     static void printORFs(const std::vector<ORF>& orfs);
-
     static std::vector<ORF> filterByLength(const std::vector<ORF>& orfs, int minLength);
-
     static std::vector<ORF> filterByFrame(const std::vector<ORF>& orfs, int frame);
-
     static std::vector<ORF> removeOverlaps(const std::vector<ORF>& orfs);
 
     //a function to add ORFs as features to DNASequence
@@ -39,4 +30,3 @@ public:
 private:
     static void scanFrame(const std::string& frameSequence, const std::string& originalSequence, int frameOffset, int frameNumber, TrieIndex& trie, std::vector<ORF>& results);
 };
-

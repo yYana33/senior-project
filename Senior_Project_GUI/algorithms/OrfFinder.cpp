@@ -76,7 +76,7 @@ void OrfFinder::scanFrame(const std::string& frameSequence, const std::string& o
                                 orf.start = originalSequence.length() - (frameOffset + stopPos + 3);
                                 orf.end = originalSequence.length() - (frameOffset + pos) - 1;
                                 if (orf.start > orf.end) {
-                                    std::swap(orf.start, orf.end); //swap if needed for now - will fix
+                                    std::swap(orf.start, orf.end);
                                 }
                             }
 
@@ -130,8 +130,6 @@ void OrfFinder::printORFs(const std::vector<ORF>& orfs) {
 void OrfFinder::findAndAddORFs(DNASequence& sequence, TrieIndex& trie) {
     vector<ORF> orfs = findORFs(sequence.getSequence(), trie);
 
-    qDebug() << "ORF finder found" << orfs.size() << "ORFs";
-
     //each ORF is converted to a Gene feature
     for (const auto& orf : orfs) {
         qDebug() << "ORF found at:" << orf.start << "-" << orf.end << "frame:" << orf.frame;
@@ -147,8 +145,6 @@ void OrfFinder::findAndAddORFs(DNASequence& sequence, TrieIndex& trie) {
         auto gene = std::make_unique<Gene>(orf.start, orf.end, orf.frame, gcContent);
         sequence.addFeature(std::move(gene));
     }
-
-    qDebug() << "Total features after adding ORFs:" << sequence.getFeatures().size();
 }
 
 std::vector<ORF> OrfFinder::filterByLength(const std::vector<ORF>& orfs, int minLength) {
@@ -174,9 +170,8 @@ std::vector<ORF> OrfFinder::filterByFrame(const std::vector<ORF>& orfs, int fram
 std::vector<ORF> OrfFinder::removeOverlaps(const std::vector<ORF>& orfs) {
     if (orfs.empty()) return orfs;
 
-
     std::vector<ORF> sorted = orfs;
-    //Sortiing by start position
+    //sortiing by start position
     std::sort(sorted.begin(), sorted.end(), [](const ORF& a, const ORF& b) { return a.start < b.start;});
 
     std::vector<ORF> nonOverlapping;
@@ -196,4 +191,3 @@ std::vector<ORF> OrfFinder::removeOverlaps(const std::vector<ORF>& orfs) {
 
     return nonOverlapping;
 }
-

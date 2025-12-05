@@ -50,7 +50,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 48,
+				"line" : 52,
 				"parent" : 0
 			},
 			{
@@ -168,7 +168,7 @@
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 50,
+				"line" : 54,
 				"parent" : 0
 			}
 		]
@@ -288,18 +288,20 @@
 				12,
 				13,
 				14,
-				15
+				15,
+				31,
+				33
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "DNAVisualizer_autogen::@6890427a1f51a3e7e1df"
+			"id" : "DNAVisualizer_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "DNAVisualizer_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "DNAVisualizer_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "DNAVisualizer::@6890427a1f51a3e7e1df",
@@ -395,7 +397,9 @@
 				12,
 				13,
 				14,
-				15
+				15,
+				31,
+				33
 			]
 		},
 		{
@@ -415,21 +419,23 @@
 				26,
 				27,
 				28,
-				29
+				29,
+				30,
+				32
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				30
+				34
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				31
+				35
 			]
 		}
 	],
@@ -601,6 +607,28 @@
 			"backtrace" : 1,
 			"path" : "gui/Sequence.h",
 			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "gui/SequenceVisualizer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "gui/SequenceVisualizer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "gui/GCContentCircle.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "gui/GCContentCircle.cpp",
+			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,

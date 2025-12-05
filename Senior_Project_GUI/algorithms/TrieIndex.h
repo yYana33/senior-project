@@ -13,7 +13,6 @@ public:
     ~TrieIndex();
 
     void insertKmer(const std::string& kmer, int position);
-
     void buildIndex(const std::string& sequence);
 
     std::vector<int> findPositions(const std::string& kmer) const;//all positions of a specific k-mer
@@ -22,7 +21,7 @@ public:
 
     int getKmerLength() const;
 
-    std::vector<std::string> getAllKmers() const;//debugging
+    std::vector<std::string> getAllKmers() const;
 
 private:
     void collectKmers(TrieNode* node, std::string& current, std::vector<std::string>& results) const;

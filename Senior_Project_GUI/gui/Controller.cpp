@@ -1,4 +1,8 @@
 #include "Controller.h"
+#include "./core/Feature.h"
+#include "./algorithms/SearchAlgorithm.h"
+#include "SequenceVisualizer.h"
+#include "./features/SearchMatch.h"
 #include <sstream>
 #include <algorithm>
 #include <iostream>
@@ -10,12 +14,9 @@
 using namespace std;
 
 Controller::Controller(QObject* parent) : QObject(parent) {
-    qDebug() << "Controller created";
 }
 
 bool Controller::loadSequence(const QString& filePath) {
-    qDebug() << "Attempting to load file:" << filePath;
-    qDebug() << "File exists:" << QFile::exists(filePath);
 
     auto newSequence = FastaParser::parseFromFile(filePath.toStdString());
 
@@ -29,9 +30,20 @@ bool Controller::loadSequence(const QString& filePath) {
 
         return true;
     } else {
-        qDebug() << "Failed to load sequence!";
         return false;
     }
+}
+
+double Controller::getGCPercentage() const {
+    if (!currentSequence) return 0.0;
+
+    const std::string& seq = currentSequence->getSequence();
+    int gc = 0;
+    for (char c : seq) {
+        char b = std::toupper(c);
+        if (b == 'G' || b == 'C') gc++;
+    }
+    return (seq.empty() ? 0.0 : (100.0 * gc / seq.size()));
 }
 
 void Controller::calculateStatistics() {
@@ -66,8 +78,7 @@ QString Controller::getStatisticsInfo() const {
 
     for (const auto& baseCount : baseCounts) {
         double percentage = (baseCount.second * 100.0) / totalBases;
-        ss << baseCount.first << ": " << baseCount.second << " ("
-           << std::fixed << std::setprecision(2) << percentage << "%)\n";
+        ss << baseCount.first << ": " << baseCount.second << " (" << std::fixed << std::setprecision(2) << percentage << "%)\n";
     }
 
     int gcCount = 0;
@@ -82,10 +93,9 @@ QString Controller::getStatisticsInfo() const {
 
     return QString::fromStdString(ss.str());
 }
+
 void Controller::runAutoSearch() {
     if (!currentSequence) return;
-
-    qDebug() << "Running automatic searches for common motifs...";
 
     std::vector<std::string> autoPatterns = {
         "ATG", "TAA", "TAG", "TGA", "GGCC", "ATAT", "CG"
@@ -102,7 +112,7 @@ void Controller::runAutoSearch() {
         if (positions.empty()) {
             ss << "None";
         } else {
-            //showing only the first 10 positions to avoid overwhelming display
+            //showing only the first 10 positionsto avoid overwhelming display
             size_t maxToShow = std::min(positions.size(), size_t(10));
             for (size_t i = 0; i < maxToShow; i++) {
                 ss << positions[i];
@@ -118,153 +128,242 @@ void Controller::runAutoSearch() {
     }
 
     autoSearchResults = QString::fromStdString(ss.str());
-    qDebug() << "Auto-search completed";
 }
 
 bool Controller::loadSecondSequence(const QString& filePath) {
-    qDebug() << "Attempting to load second file for alignment:" << filePath;
-    qDebug() << "File exists:" << QFile::exists(filePath);
 
     auto newSequence = FastaParser::parseFromFile(filePath.toStdString());
 
     if (newSequence) {
         secondSequence = std::move(newSequence);
-        qDebug() << "Successfully loaded second sequence! Length:" << secondSequence->length();
         return true;
     } else {
-        qDebug() << "Failed to load second sequence!";
         return false;
     }
 }
 
+int Controller::getSearchMatchCount() const {
+    if (!currentSequence) return 0;
+
+    int count = 0;
+    const auto& features = currentSequence->getFeatures();
+    for (const auto& feature : features) {
+        if (feature && feature->getType() == "search_match") {
+            count++;
+        }
+    }
+    return count;
+}
+
+int Controller::getGeneCount() const {
+    if (!currentSequence) return 0;
+
+    int count = 0;
+    const auto& features = currentSequence->getFeatures();
+    for (const auto& feature : features) {
+        if (feature->getType() == "gene") {
+            count++;
+        }
+    }
+    return count;
+}
+
 void Controller::searchPattern(const QString& pattern) {
     if (!currentSequence) {
-        qDebug() << "Cannot search - no sequence loaded!";
         return;
     }
 
-    qDebug() << "STARTING SEARCH";
-    qDebug() << "Searching for pattern:" << pattern;
-    qDebug() << "Current features before search:" << currentSequence->getFeatures().size();
+    //uppercase for consistency
+    std::string patternStr = pattern.toUpper().toStdString();
+    currentPattern = pattern.toUpper();
+    qDebug() << "Uppercase pattern:" << QString::fromStdString(patternStr);
 
-    string patternStr = pattern.toStdString();
-    SearchAlgorithm::searchAndAddMatches(*currentSequence, patternStr);
-
-    qDebug() << "Current features after search:" << currentSequence->getFeatures().size();
-
-    const auto& features = currentSequence->getFeatures();
-    for (const auto& feature : features) {
-        qDebug() << "Feature:" << QString::fromStdString(feature->getDisplayName()) << "at" << feature->getStart() << "-" << feature->getEnd();
+    //Validating pattern char
+    for (char c : patternStr) {
+        if (c != 'A' && c != 'T' && c != 'C' && c != 'G') {
+            emit errorOccurred(QString("Invalid DNA character '%1' in search pattern.\n"
+            "Only A, T, C, and G are allowed.").arg(c));
+            return;
+        }
     }
 
-    qDebug() << "SEARCH COMPLETED";
+    //Validating pattern length
+    if (patternStr.length() < 2) {
+        emit errorOccurred("Search pattern must be at least 2 characters long!");
+        return;
+    }
+
+    if (patternStr.length() > 20) {
+        emit errorOccurred("Search pattern cannot exceed 20 characters!");
+        return;
+    }
+
+    SearchAlgorithm::searchAndAddMatches(*currentSequence, patternStr);
+
+    emit searchCompleted(pattern, currentSequence->getFeatures().size());
 }
 
 void Controller::findORFs() {
     if (!currentSequence) {
-        qDebug() << "Cannot find ORFs - no sequence loaded!";
         return;
     }
 
-    qDebug() << "STARTING ORF FINDING";
-    qDebug() << "Current features before ORF:" << currentSequence->getFeatures().size();
-
     OrfFinder::findAndAddORFs(*currentSequence, trieIndex);
-
-    qDebug() << "Current features after ORF:" << currentSequence->getFeatures().size();
 
     const auto& features = currentSequence->getFeatures();
     for (const auto& feature : features) {
         qDebug() << "Feature:" << QString::fromStdString(feature->getDisplayName()) << "at" << feature->getStart() << "-" << feature->getEnd();
     }
-    qDebug() << "ORF finding COMPLETED";
 }
 
 void Controller::alignSequences() {
     if (!currentSequence || !secondSequence) {
-        qDebug() << "Cannot align - need two sequences loaded!";
         return;
     }
 
-    qDebug() << "STARTING ALIGNMENT";
-    qDebug() << "Sequence 1 length:" << currentSequence->length();
-    qDebug() << "Sequence 2 length:" << secondSequence->length();
-
-    //a progress bar for long sequences
-    if (currentSequence->length() > 1000 || secondSequence->length() > 1000) {
-        qDebug() << "Performing alignment on large sequences...";
-    }
-
-    lastAlignment = aligner.align(currentSequence->getSequence(), secondSequence->getSequence());
+    lastAlignment = aligner.align(
+        currentSequence->getSequence(),
+        secondSequence->getSequence());
     hasAlignmentResult = true;
 
-    qDebug() << "Alignment completed with score:" << lastAlignment.score;
-    qDebug() << "Alignment length:" << lastAlignment.sequence1.length();
-    qDebug() << "Similarity:" << Aligner::calculateSimilarity(lastAlignment) << "%";
+    //aligned strings to QString for visualization
+    QString aligned1 = QString::fromStdString(lastAlignment.sequence1);
+    QString aligned2 = QString::fromStdString(lastAlignment.sequence2);
 
-    if (lastAlignment.sequence1.length() > 1000) {
-        qDebug() << "Long alignment generated";
-    }
+    alignmentBlocks = computeAlignmentBlocks(aligned1, aligned2);
 }
-QString Controller::getAlignmentInfo() const {
-    if (!currentSequence || !secondSequence) {
-        return "Please load two sequences for an alignment.";
+
+std::vector<SequenceVisualizer::AlignBlock>
+Controller::computeAlignmentBlocks(const QString& seq1Aligned, const QString& seq2Aligned)
+{
+    std::vector<SequenceVisualizer::AlignBlock> blocks;
+
+    int n = seq1Aligned.size();
+    if (n == 0) return blocks;
+
+    int blockStart = 0;
+    int matches = 0;
+    int length = 0;
+
+    for (int i = 0; i <= n; ++i)
+    {
+        bool end = (i == n);
+
+        bool valid = !end && seq1Aligned[i] != '-' && seq2Aligned[i] != '-';
+        bool match = valid && (seq1Aligned[i] == seq2Aligned[i]);
+
+        if (!end)
+        {
+            if (valid)
+            {
+                length++;
+                if (match) matches++;
+            }
+        }
+
+        if (end || !valid)
+        {
+            if (length > 0)
+            {
+                double sim = (double)matches / length;
+
+                blocks.push_back({
+                    blockStart,
+                    i - 1,
+                    sim
+                });
+            }
+
+            blockStart = i + 1;
+            matches = 0;
+            length = 0;
+        }
     }
 
-    if (!hasAlignmentResult) {
-        return "Two sequences loaded. Use the Align button to compare them.";
-    }
-
-    stringstream ss;
-    ss << "SEQUENCE ALIGNMENT RESULT\n\n";
-    ss << "Alignment Score: " << lastAlignment.score << "\n";
-    ss << "Similarity: " << Aligner::calculateSimilarity(lastAlignment) << "%\n";
-    ss << "Aligned Length: " << lastAlignment.sequence1.length() << " bases\n";
-    ss << "Sequence 1 Region: " << lastAlignment.start1 << " - " << lastAlignment.end1 << "\n";
-    ss << "Sequence 2 Region: " << lastAlignment.start2 << " - " << lastAlignment.end2 << "\n\n";
-
-    ss << "Complete alignment:\n";
-
-    //displaying alignment in blocks of 80 characters
-    int blockSize = 80;
-    int totalLength = lastAlignment.sequence1.length();
-    int blockNumber = 1;
-
-    for (int start = 0; start < totalLength; start += blockSize) {
-        int end = min(start + blockSize, totalLength);
-
-        ss << "Block " << blockNumber << ":\n";
-        ss << "Seq1: " << lastAlignment.sequence1.substr(start, end - start) << "\n";
-        ss << "      " << lastAlignment.matchLine.substr(start, end - start) << "\n";
-        ss << "Seq2: " << lastAlignment.sequence2.substr(start, end - start) << "\n";
-
-        int blockMatches = count(lastAlignment.matchLine.begin() + start, lastAlignment.matchLine.begin() + end, '|');
-        double blockIdentity = (end - start > 0) ? (blockMatches * 100.0 / (end - start)) : 0.0;
-
-        ss << "      [Block identity: " << fixed << setprecision(1) << blockIdentity << "%]\n\n";
-        blockNumber++;
-    }
-
-    //overall stats
-    int totalMatches = count(lastAlignment.matchLine.begin(), lastAlignment.matchLine.end(), '|');
-    int totalGaps = count(lastAlignment.sequence1.begin(), lastAlignment.sequence1.end(), '-') + count(lastAlignment.sequence2.begin(), lastAlignment.sequence2.end(), '-');
-
-    ss << "OVERALL STATISTICS:\n";
-    ss << "Total Alignment Length: " << totalLength << " bases\n";
-    ss << "Matches: " << totalMatches << "\n";
-    ss << "Mismatches: " << (totalLength - totalMatches - totalGaps) << "\n";
-    ss << "Gaps: " << totalGaps << "\n";
-    ss << "Overall Identity: " << fixed << setprecision(1)
-       << (totalMatches * 100.0 / totalLength) << "%\n";
-    ss << "Alignment Score: " << lastAlignment.score << "\n";
-
-    return QString::fromStdString(ss.str());
+    return blocks;
 }
+
+std::vector<Controller::ORFRegion> Controller::getORFs() const {
+    std::vector<ORFRegion> out;
+
+    if (!currentSequence) return out;
+
+    const auto& features = currentSequence->getFeatures();
+
+    for (const auto& f : features) {
+        if (f->getType() == "gene") {
+
+            const Gene* g = dynamic_cast<const Gene*>(f.get());
+            if (!g) continue;
+
+            int frame = g->getReadingFrame();
+            int strand = (frame > 0 ? +1 : -1);
+
+            out.push_back({
+                f->getStart(),
+                f->getEnd(),
+                strand
+            });
+        }
+    }
+
+    return out;
+}
+
 
 void Controller::clearResults() {
     if (currentSequence) {
         currentSequence->clearFeatures();
     }
+}
+
+void Controller::clearSearchResults() {
+    if (currentSequence) {
+        currentSequence->removeFeaturesOfType("search_match");
+    }
+}
+
+void Controller::clearORFResults() {
+    if (currentSequence) {
+        currentSequence->removeFeaturesOfType("gene");
+    }
+}
+
+void Controller::clearAlignmentResults() {
+    hasAlignmentResult = false;
+    lastAlignment = Alignment();
+}
+
+void Controller::clearAllResults() {
+    clearSearchResults();
+    clearORFResults();
+    clearAlignmentResults();
+}
+
+bool Controller::hasSearchResults() const {
+    if (!currentSequence) return false;
+    const auto& features = currentSequence->getFeatures();
+    for (const auto& feature : features) {
+        if (feature->getType() == "search_match") {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Controller::hasORFResults() const {
+    if (!currentSequence) return false;
+    const auto& features = currentSequence->getFeatures();
+    for (const auto& feature : features) {
+        if (feature->getType() == "gene") {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Controller::hasAlignmentResults() const {
+    return hasAlignmentResult;
 }
 
 QString Controller::getSequenceInfo() const {
@@ -282,7 +381,7 @@ QString Controller::getFeaturesInfo() const {
     if (!currentSequence) return "No sequence loaded";
 
     const auto& features = currentSequence->getFeatures();
-    if (features.empty()) return "No features found";
+    if (features.empty()) return "No results found";
 
     stringstream ss;
     ss << "Found " << features.size() << " features:\n\n";
@@ -295,11 +394,69 @@ QString Controller::getFeaturesInfo() const {
     return QString::fromStdString(ss.str());
 }
 
+QString Controller::getAlignmentInfo() const {
+    if (!currentSequence || !secondSequence) {
+        return "Please load two sequences for an alignment.";
+    }
+
+    if (!hasAlignmentResult) {
+        return "Two sequences loaded. Use the Align button to compare them.";
+    }
+
+    std::stringstream ss;
+
+    ss << "SEQUENCE ALIGNMENT RESULT\n\n";
+    ss << "Alignment Score: " << lastAlignment.score << "\n";
+    ss << "Similarity: " << Aligner::calculateSimilarity(lastAlignment) << "%\n";
+    ss << "Aligned Length: " << lastAlignment.sequence1.length() << " bases\n";
+    ss << "Sequence 1 Region: " << lastAlignment.start1 << " - " << lastAlignment.end1 << "\n";
+    ss << "Sequence 2 Region: " << lastAlignment.start2 << " - " << lastAlignment.end2 << "\n\n";
+
+    ss << "Complete alignment:\n";
+
+    int blockSize = 80;
+    int totalLength = lastAlignment.sequence1.length();
+    int blockNumber = 1;
+
+    for (int start = 0; start < totalLength; start += blockSize) {
+        int end = std::min(start + blockSize, totalLength);
+
+        ss << "Block " << blockNumber << ":\n";
+        ss << "Seq1: " << lastAlignment.sequence1.substr(start, end - start) << "\n";
+        ss << "      " << lastAlignment.matchLine.substr(start, end - start) << "\n";
+        ss << "Seq2: " << lastAlignment.sequence2.substr(start, end - start) << "\n";
+
+        int blockMatches = std::count(lastAlignment.matchLine.begin() + start, lastAlignment.matchLine.begin() + end, '|');
+
+        double blockIdentity =
+            (end - start > 0) ? (blockMatches * 100.0 / (end - start)) : 0.0;
+
+        ss << "      [Block identity: " << std::fixed << std::setprecision(1) << blockIdentity << "%]\n\n";
+
+        blockNumber++;
+    }
+
+    int totalMatches = std::count(lastAlignment.matchLine.begin(), lastAlignment.matchLine.end(), '|');
+
+    ss << "OVERALL STATISTICS:\n";
+    ss << "Total Alignment Length: " << totalLength << " bases\n";
+    ss << "Matches: " << totalMatches << "\n";
+    ss << "Gaps: "
+       << std::count(lastAlignment.sequence1.begin(), lastAlignment.sequence1.end(), '-')
+        + std::count(lastAlignment.sequence2.begin(), lastAlignment.sequence2.end(), '-') << "\n";
+
+    double overallIdentity = totalMatches * 100.0 / totalLength;
+
+    ss << "Overall Identity: " << std::fixed << std::setprecision(1) << overallIdentity << "%\n";
+
+    return QString::fromStdString(ss.str());
+}
+
 void Controller::updateTrieIndex() {
     if (currentSequence) {
         trieIndex.buildIndex(currentSequence->getSequence());
         cout << "Trie index updated for sequence of length " << currentSequence->length() << endl;
     } else {
-        cout << "Cannot update trie - no sequence loaded" << endl;
+        cout << "Cannot update trie, there is no sequence" << endl;
     }
 }

@@ -12,6 +12,8 @@
 #include <QTextEdit>
 #include <QInputDialog>
 #include "Controller.h"
+#include "SequenceVisualizer.h"
+#include "GCContentCircle.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -28,17 +30,29 @@ private slots:
     void findORFs();
     void alignSequences();
     void showAbout();
+    void onViewModeChanged(SequenceVisualizer::VisualizationMode mode);
+    void onZoomLevelChanged(double zoom);
 
 private:
     void setupUI();
     void setupMenus();
     void setupToolbar();
+    void setupViewToolbar();
     void updateDisplay();
+    void clearSearchResults();
+    void clearORFResults();
+    void clearAlignmentResults();
+    void clearAllResults();
+
+
+    QAction* clearSearchAction;
+    QAction* clearORFAction;
+    QAction* clearAlignmentAction;
+    QAction* clearAllAction;
 
     QWidget* centralWidget;
     QVBoxLayout* mainLayout;
     QHBoxLayout* contentLayout;
-    QTextEdit* sequenceDisplay;
     QTextEdit* resultsDisplay;
 
     QAction* loadAction;
@@ -50,6 +64,17 @@ private:
     QAction* aboutAction;
     QAction* testAction;
 
-    Controller controller;
+    Controller* controller;
+    GCContentCircle* gcCircle;
+
+    QToolBar* viewToolBar;
+    QAction* detailedViewAction;
+    QAction* featureViewAction;
+    QAction* autoViewAction;
+    QAction* zoomInAction;
+    QAction* zoomOutAction;
+    QAction* zoomResetAction;
+    SequenceVisualizer* sequenceVisualizer;
+    void updateVisualization();
 };
 

@@ -385,6 +385,12 @@
 			null
 		],
 		[
+			"C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/GCContentCircle.h",
+			"MU",
+			"DMHXEJ42XS/moc_GCContentCircle.cpp",
+			null
+		],
+		[
 			"C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/ResultsPanel.h",
 			"MU",
 			"DMHXEJ42XS/moc_ResultsPanel.cpp",
@@ -394,6 +400,12 @@
 			"C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/Sequence.h",
 			"MU",
 			"DMHXEJ42XS/moc_Sequence.cpp",
+			null
+		],
+		[
+			"C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/SequenceVisualizer.h",
+			"MU",
+			"DMHXEJ42XS/moc_SequenceVisualizer.cpp",
 			null
 		],
 		[
@@ -531,12 +543,22 @@
 			null
 		],
 		[
+			"C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/GCContentCircle.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/ResultsPanel.cpp",
 			"MU",
 			null
 		],
 		[
 			"C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/Sequence.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/SequenceVisualizer.cpp",
 			"MU",
 			null
 		],

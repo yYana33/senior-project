@@ -35,7 +35,7 @@ unique_ptr<DNASequence> FastaParser::parseFromString(const std::string& data) {
         //checking if the line is a header line
         if (line[0] == '>') {
             if (!isFirstLine) {
-                cerr << "Error! Multiple sequences found in FASTA file; only single sequences allowed." << endl;
+                cerr << "Error! Multiple sequences found in FASTA file; only single sequences are allowed." << endl;
                 return nullptr;
             }
             //extracting the header (removing the '>')
@@ -92,4 +92,3 @@ unique_ptr<DNASequence> FastaParser::parseFromString(const std::string& data) {
 
     return dnaSeq;
 }
-

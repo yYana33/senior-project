@@ -43,7 +43,11 @@ set(HEADERS
     gui/Sequence.h
 )
 
-add_executable(DNAVisualizer ${SOURCES} ${HEADERS})
+add_executable(DNAVisualizer ${SOURCES} ${HEADERS}
+    gui/SequenceVisualizer.h
+    gui/SequenceVisualizer.cpp
+    gui/GCContentCircle.h
+    gui/GCContentCircle.cpp)
 
 target_link_libraries(DNAVisualizer Qt6::Core Qt6::Widgets)
 

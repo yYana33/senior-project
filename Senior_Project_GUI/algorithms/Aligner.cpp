@@ -8,7 +8,6 @@ using namespace std;
 
 Aligner::Aligner(int match, int mismatch, int gap) : matchScore(match), mismatchScore(mismatch), gapPenalty(gap) {}
 
-
 Alignment Aligner::align(const std::string& seq1, const std::string& seq2) {
     int m = seq1.length();
     int n = seq2.length();
@@ -64,9 +63,7 @@ int Aligner::score(char a, char b) const {
     return (toupper(a) == toupper(b)) ? matchScore : mismatchScore;
 }
 
-void Aligner::traceback(const std::vector<std::vector<int>>& matrix,
-                        const std::string& seq1, const std::string& seq2,
-                        int maxI, int maxJ, Alignment& result) {
+void Aligner::traceback(const std::vector<std::vector<int>>& matrix, const std::string& seq1, const std::string& seq2, int maxI, int maxJ, Alignment& result) {
     string aligned1, aligned2, matchLine;
     int i = maxI, j = maxJ;
 
@@ -104,7 +101,7 @@ void Aligner::traceback(const std::vector<std::vector<int>>& matrix,
             j--;
         }
         else {
-            break; //should not happen
+            break;
         }
     }
 
@@ -138,7 +135,7 @@ void Aligner::printAlignment(const Alignment& alignment) {
         cout << endl;
     }
 
-    //statistics
+    //stats
     int matches = count(alignment.matchLine.begin(), alignment.matchLine.end(), '|');
     int gaps = count(alignment.sequence1.begin(), alignment.sequence1.end(), '-') + count(alignment.sequence2.begin(), alignment.sequence2.end(), '-');
 
@@ -155,5 +152,3 @@ double Aligner::calculateSimilarity(const Alignment& alignment) {
     int matches = count(alignment.matchLine.begin(), alignment.matchLine.end(), '|');
     return (matches * 100.0) / alignment.sequence1.length();
 }
-
-

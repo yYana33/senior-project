@@ -20,7 +20,6 @@ public:
 
     const std::vector<std::unique_ptr<Feature>>& getFeatures() const { return features; }
 
-
     void addFeature(std::unique_ptr<Feature> feature);
     void clearFeatures();
     void removeFeaturesOfType(const std::string& type);
@@ -30,8 +29,3 @@ public:
 
     static std::string reverseComplement(const std::string& seq);
 };
-
-
-
-
-

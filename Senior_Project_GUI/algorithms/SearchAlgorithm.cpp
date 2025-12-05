@@ -8,36 +8,47 @@ using namespace std;
 
 vector<int> SearchAlgorithm::boyerMooreSearch(const std::string& text, const std::string& pattern) {
     vector<int> positions;
-    int m = pattern.length();
-    int n = text.length();
 
-    if (m == 0 || n == 0 || m > n) {
-        return positions; //returns empty vector for invalid inputs
+    //edge cases
+    if (pattern.empty() || text.empty() || pattern.length() > text.length()) {
+        return positions;
     }
 
-    //creating the table
-    int badchar[256];
-    buildBadCharTable(pattern, badchar);
+    //both text and pattern to uppercase
+    string upperText = text;
+    string upperPattern = pattern;
 
-    int s = 0; //the shift of the pattern
+    transform(upperText.begin(), upperText.end(), upperText.begin(), ::toupper);
+    transform(upperPattern.begin(), upperPattern.end(), upperPattern.begin(), ::toupper);
+
+    int m = upperPattern.length();
+    int n = upperText.length();
+
+    //creating bad character table
+    int badchar[256];
+    buildBadCharTable(upperPattern, badchar);
+
+    int s = 0; // s is shift of the pattern with respect to text
     while (s <= (n - m)) {
         int j = m - 1;
 
-        //reducing index j while characters match
-        while (j >= 0 && pattern[j] == text[s + j]) {
+        //reducing index j of pattern while characters match
+        while (j >= 0 && upperPattern[j] == upperText[s + j]) {
             j--;
         }
 
-        if (j < 0) { //if the pattern is present at current shift
+        //if the pattern is present at current shift
+        if (j < 0) {
             positions.push_back(s);
 
             //shifting the pattern to find next occurrence
-            s += (s + m < n) ? m - badchar[text[s + m]] : 1;
-        }
-        else { //bad character rule
-            s += max(1, j - badchar[text[s + j]]);
+            s += (s + m < n) ? m - badchar[upperText[s + m]] : 1;
+        } else {
+            //shifting the pattern based on bad character rule
+            s += max(1, j - badchar[upperText[s + j]]);
         }
     }
+
     return positions;
 }
 
@@ -73,12 +84,7 @@ void SearchAlgorithm::printSearchResults(const std::vector<int>& positions, cons
 void SearchAlgorithm::searchAndAddMatches(DNASequence& sequence, const std::string& pattern) {
     sequence.removeFeaturesOfType("search_match");
 
-    qDebug() << "Searching in sequence of length:" << sequence.getSequence().length();
-    qDebug() << "Pattern:" << QString::fromStdString(pattern);
-
     vector<int> positions = boyerMooreSearch(sequence.getSequence(), pattern);
-
-    qDebug() << "Boyer-Moore found" << positions.size() << "positions";
 
     // creating SearchMatch features for each found position
     for (int pos : positions) {
@@ -87,6 +93,4 @@ void SearchAlgorithm::searchAndAddMatches(DNASequence& sequence, const std::stri
         auto match = std::make_unique<SearchMatch>(pos, endPos, pattern);
         sequence.addFeature(std::move(match));
     }
-
-    qDebug() << "Total features after adding search matches:" << sequence.getFeatures().size();
 }

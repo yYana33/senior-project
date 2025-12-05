@@ -177,6 +177,22 @@ build CMakeFiles/DNAVisualizer.dir/gui/Sequence.cpp.obj: CXX_COMPILER__DNAVisual
   OBJECT_DIR = CMakeFiles\DNAVisualizer.dir
   OBJECT_FILE_DIR = CMakeFiles\DNAVisualizer.dir\gui
 
+build CMakeFiles/DNAVisualizer.dir/gui/SequenceVisualizer.cpp.obj: CXX_COMPILER__DNAVisualizer_unscanned_Debug C$:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/SequenceVisualizer.cpp || cmake_object_order_depends_target_DNAVisualizer
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\DNAVisualizer.dir\gui\SequenceVisualizer.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/DNAVisualizer_autogen/include -IC:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\DNAVisualizer.dir
+  OBJECT_FILE_DIR = CMakeFiles\DNAVisualizer.dir\gui
+
+build CMakeFiles/DNAVisualizer.dir/gui/GCContentCircle.cpp.obj: CXX_COMPILER__DNAVisualizer_unscanned_Debug C$:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/GCContentCircle.cpp || cmake_object_order_depends_target_DNAVisualizer
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\DNAVisualizer.dir\gui\GCContentCircle.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/DNAVisualizer_autogen/include -IC:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\DNAVisualizer.dir
+  OBJECT_FILE_DIR = CMakeFiles\DNAVisualizer.dir\gui
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target DNAVisualizer
@@ -185,7 +201,7 @@ build CMakeFiles/DNAVisualizer.dir/gui/Sequence.cpp.obj: CXX_COMPILER__DNAVisual
 #############################################
 # Link the executable DNAVisualizer.exe
 
-build DNAVisualizer.exe: CXX_EXECUTABLE_LINKER__DNAVisualizer_Debug CMakeFiles/DNAVisualizer.dir/DNAVisualizer_autogen/mocs_compilation.cpp.obj CMakeFiles/DNAVisualizer.dir/main.cpp.obj CMakeFiles/DNAVisualizer.dir/core/DNASequence.cpp.obj CMakeFiles/DNAVisualizer.dir/core/Feature.cpp.obj CMakeFiles/DNAVisualizer.dir/features/Gene.cpp.obj CMakeFiles/DNAVisualizer.dir/features/SearchMatch.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/Aligner.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/OrfFinder.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/TrieIndex.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/TrieNode.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/SearchAlgorithm.cpp.obj CMakeFiles/DNAVisualizer.dir/io/FastaParser.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/Controller.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/ResultsPanel.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/mainwindow.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/Sequence.cpp.obj | C$:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Core.a || DNAVisualizer_autogen DNAVisualizer_autogen_timestamp_deps
+build DNAVisualizer.exe: CXX_EXECUTABLE_LINKER__DNAVisualizer_Debug CMakeFiles/DNAVisualizer.dir/DNAVisualizer_autogen/mocs_compilation.cpp.obj CMakeFiles/DNAVisualizer.dir/main.cpp.obj CMakeFiles/DNAVisualizer.dir/core/DNASequence.cpp.obj CMakeFiles/DNAVisualizer.dir/core/Feature.cpp.obj CMakeFiles/DNAVisualizer.dir/features/Gene.cpp.obj CMakeFiles/DNAVisualizer.dir/features/SearchMatch.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/Aligner.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/OrfFinder.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/TrieIndex.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/TrieNode.cpp.obj CMakeFiles/DNAVisualizer.dir/algorithms/SearchAlgorithm.cpp.obj CMakeFiles/DNAVisualizer.dir/io/FastaParser.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/Controller.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/ResultsPanel.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/mainwindow.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/Sequence.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/SequenceVisualizer.cpp.obj CMakeFiles/DNAVisualizer.dir/gui/GCContentCircle.cpp.obj | C$:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Core.a || DNAVisualizer_autogen DNAVisualizer_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = C:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a  C:/Qt/6.10.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\DNAVisualizer.dir

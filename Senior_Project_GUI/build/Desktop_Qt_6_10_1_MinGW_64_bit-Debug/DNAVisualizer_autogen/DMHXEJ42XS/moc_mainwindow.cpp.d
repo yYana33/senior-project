@@ -1,6 +1,10 @@
 C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/DNAVisualizer_autogen/DMHXEJ42XS/moc_mainwindow.cpp: C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/mainwindow.h \
   C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/DNAVisualizer_autogen/moc_predefs.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QList \
   C:/Qt/6.10.1/mingw_64/include/QtCore/QObject \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QRect \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QSize \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.10.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
@@ -10,6 +14,7 @@ C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20utility.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q23type_traits.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q23utility.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qalloc.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qanystringview.h \
@@ -20,6 +25,7 @@ C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_
   C:/Qt/6.10.1/mingw_64/include/QtCore/qatomic.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qbytearray.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -38,13 +44,18 @@ C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_
   C:/Qt/6.10.1/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qcontiguouscache.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qdatastream.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qdatetime.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qdebug.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qdir.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qdirlisting.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qendian.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qeventloop.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qfile.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qfiledevice.h \
@@ -76,6 +87,7 @@ C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_
   C:/Qt/6.10.1/mingw_64/include/QtCore/qmetatype.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qminmax.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qnamespace.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qnativeinterface.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qnumeric.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qobject.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qobject_impl.h \
@@ -141,27 +153,40 @@ C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_
   C:/Qt/6.10.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qyieldcpu.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/QAction \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/QMouseEvent \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/QPainter \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/QTransform \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qbrush.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qcolor.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qcursor.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qevent.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qeventpoint.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qfont.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qfontinfo.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qfontmetrics.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qfontvariableaxis.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qguiapplication_platform.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qicon.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qimage.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qinputdevice.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qinputmethod.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qpaintdevice.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qpainter.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qpixmap.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qpointingdevice.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qpolygon.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qscreen.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qscreen_platform.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qtextcursor.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qtextdocument.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qtextformat.h \
@@ -170,6 +195,8 @@ C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_
   C:/Qt/6.10.1/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qtguiglobal.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qtransform.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qvector2d.h \
+  C:/Qt/6.10.1/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.10.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.10.1/mingw_64/include/QtWidgets/QFileDialog \
@@ -461,4 +488,6 @@ C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/build/Desktop_Qt_
   C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/features/Gene.h \
   C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/features/SearchMatch.h \
   C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/Controller.h \
+  C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/GCContentCircle.h \
+  C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/gui/SequenceVisualizer.h \
   C:/Users/temp/Desktop/Senior_Project_Qt_GUI/Senior_Project_GUI/io/FastaParser.h

@@ -4,7 +4,11 @@
 
 using namespace std;
 
-Gene::Gene(int start, int end, int readingFrame, double gcContent, const std::string& description) : Feature(start, end, "gene", description), readingFrame(readingFrame), gcContent(gcContent) {}
+Gene::Gene(int start, int end, int readingFrame, int strand, double gcContent, const std::string& description)
+    : Feature(start, end, "gene", description), readingFrame(readingFrame), gcContent(gcContent)
+{
+    this->strand = strand;
+}
 
 string Gene::getDisplayName() const {
     stringstream ss;
@@ -22,4 +26,3 @@ string Gene::getDetails() const {
 
     return ss.str();
 }
-
